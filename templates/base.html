@@ -3,43 +3,172 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}My Web Programming Portfolio{% endblock %}</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}My Web Programming Portfolio{% endblock %}
+    </title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="{{ url_for('static', filename='script.js') }}"
+            defer></script>
 </head>
+
 
 <body>
 
-    <header>
-        <h1>Web Programming Portfolio – Elie Haddad</h1>
-        <p>A live site that grows one page or feature every week.</p>
+    <!-- Reading progress -->
+    <div class="reading-progress"
+         aria-hidden="true">
+        <div class="reading-progress-bar"></div>
+    </div>
 
-        <nav>
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('internet_history') }}">History of the Internet</a>
-            <a href="{{ url_for('web_history') }}">History of the Web</a>
-            <a href="{{ url_for('internet_history_ai') }}">Internet History AI</a>
-            <a href="{{ url_for('web_history_ai') }}">Web History AI</a>
-        </nav>
+
+    <!-- Animated decorative background -->
+    <div class="background-effects"
+         aria-hidden="true">
+    </div>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="site-header">
+
+        <div class="site-brand">
+
+            <div class="site-logo">
+                EH
+            </div>
+
+            <div class="site-title-group">
+
+                <h1>
+                    Web Programming Portfolio – Elie Haddad
+                </h1>
+
+                <p>
+                    A live site that grows one page or feature every week.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= NAVIGATION ================= -->
+
+        <div class="navigation-row">
+
+            <nav class="site-nav">
+
+                <a href="{{ url_for('home') }}"
+                   class="{% if request.endpoint == 'home' %}active{% endif %}"
+                   {% if request.endpoint == 'home' %}
+                   aria-current="page"
+                   {% endif %}>
+                    Home
+                </a>
+
+
+                <a href="{{ url_for('internet_history') }}"
+                   class="{% if request.endpoint == 'internet_history' %}active{% endif %}"
+                   {% if request.endpoint == 'internet_history' %}
+                   aria-current="page"
+                   {% endif %}>
+                    History of the Internet
+                </a>
+
+
+                <a href="{{ url_for('web_history') }}"
+                   class="{% if request.endpoint == 'web_history' %}active{% endif %}"
+                   {% if request.endpoint == 'web_history' %}
+                   aria-current="page"
+                   {% endif %}>
+                    History of the Web
+                </a>
+
+
+                <a href="{{ url_for('internet_history_ai') }}"
+                   class="{% if request.endpoint == 'internet_history_ai' %}active{% endif %}"
+                   {% if request.endpoint == 'internet_history_ai' %}
+                   aria-current="page"
+                   {% endif %}>
+                    Internet History AI
+                </a>
+
+
+                <a href="{{ url_for('web_history_ai') }}"
+                   class="{% if request.endpoint == 'web_history_ai' %}active{% endif %}"
+                   {% if request.endpoint == 'web_history_ai' %}
+                   aria-current="page"
+                   {% endif %}>
+                    Web History AI
+                </a>
+
+            </nav>
+
+
+            <!-- Light / dark mode -->
+
+            <button class="theme-toggle"
+                    type="button"
+                    aria-label="Switch between dark and light mode"
+                    title="Change theme">
+
+                <span class="theme-icon">
+                    ☀
+                </span>
+
+            </button>
+
+        </div>
+
     </header>
 
-    <main>
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="container">
+
         {% block content %}
         {% endblock %}
+
     </main>
 
-    <footer>
-        <p>Web Programming – built with Flask and deployed on Render.</p>
+
+    <!-- ================= BACK TO TOP ================= -->
+
+    <button class="back-to-top"
+            type="button"
+            aria-label="Back to top"
+            title="Back to top">
+
+        ↑
+
+    </button>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
 
         <p>
-            This website is created for educational purposes only, as part of the
-            GIN446 - Web Programming course, School of Engineering, USEK.
+            Web Programming – built with Flask and deployed on Render.
+        </p>
+
+        <p>
+            This website is created for educational purposes only,
+            as part of the GIN446 - Web Programming course,
+            School of Engineering, USEK.
             (Fall 2026-2027)
         </p>
+
     </footer>
+
 
 </body>
 

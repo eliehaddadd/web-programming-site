@@ -18,6 +18,7 @@ def home():
         {"week": 2, "title": "History of the Internet (AI)", "url": "/internet-history-ai"},
         {"week": 2, "title": "History of the Web (AI)", "url": "/web-history-ai"},
     ]
+
     return render_template("index.html", weekly_work=weekly_work)
 
 

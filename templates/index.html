@@ -1,25 +1,93 @@
 {% extends "base.html" %}
 
-{% block title %}My Web Programming Portfolio{% endblock %}
+{% block title %}
+Web Programming Portfolio
+{% endblock %}
+
 
 {% block content %}
 
-<section>
+<section class="weekly-work">
+
     <h2>Weekly Work</h2>
 
-    <!-- Each week you add a link here to that week's page or feature. -->
 
-    <ul>
-        {% for item in weekly_work %}
-            <li>
-                <a href="{{ item.url }}">
-                    Week {{ item.week }} – {{ item.title }}
-                </a>
-            </li>
-        {% else %}
-            <li>Week 1 – live site launched.</li>
-        {% endfor %}
-    </ul>
+    {% for week, items in weekly_work|groupby("week") %}
+
+        <div class="week-group">
+
+            <h3 class="week-title">
+                Week {{ week }}
+            </h3>
+
+
+            <ul class="weekly-list">
+
+                {% for item in items %}
+
+                    {% if item.url == "/" %}
+
+                        <li class="work-card launch">
+                            <a href="{{ item.url }}">
+                                {{ item.title }}
+                            </a>
+                        </li>
+
+
+                    {% elif item.url == "/internet-history" %}
+
+                        <li class="work-card internet">
+                            <a href="{{ item.url }}">
+                                {{ item.title }}
+                            </a>
+                        </li>
+
+
+                    {% elif item.url == "/web-history" %}
+
+                        <li class="work-card web">
+                            <a href="{{ item.url }}">
+                                {{ item.title }}
+                            </a>
+                        </li>
+
+
+                    {% elif item.url == "/internet-history-ai" %}
+
+                        <li class="work-card internet-ai">
+                            <a href="{{ item.url }}">
+                                {{ item.title }}
+                            </a>
+                        </li>
+
+
+                    {% elif item.url == "/web-history-ai" %}
+
+                        <li class="work-card web-ai">
+                            <a href="{{ item.url }}">
+                                {{ item.title }}
+                            </a>
+                        </li>
+
+
+                    {% else %}
+
+                        <li class="work-card">
+                            <a href="{{ item.url }}">
+                                {{ item.title }}
+                            </a>
+                        </li>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+    {% endfor %}
+
 </section>
 
 {% endblock %}
