@@ -1,385 +1,442 @@
 {% extends "base.html" %}
 
-{% block title %}World Wide Web History - AI Version{% endblock %}
+{% block title %}
+The Evolution of the World Wide Web
+{% endblock %}
+
 
 {% block content %}
 
-<h1>The Evolution of the World Wide Web</h1>
+<header>
+    <h1>The Evolution of the World Wide Web</h1>
 
-<section>
-    <h2>Understanding the Web</h2>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/internet-history-ai">History of the Internet (AI)</a>
+    </nav>
+</header>
 
-    <p>
-        The World Wide Web is a system of linked pages and resources that
-        people access through Web browsers. It was invented by Tim Berners-Lee
-        at CERN in 1989.
-    </p>
 
-    <p>
-        The Web uses the Internet to transfer information, but it is not
-        the Internet itself. Technologies such as HTML, HTTP, and URLs
-        form the foundation of the Web.
-    </p>
-</section>
+<main>
 
-<section>
-    <h2>Web Timeline</h2>
+    <section>
+        <h2>Understanding the Web</h2>
 
-    <ol>
+        <p>
+            The World Wide Web is a system of linked pages and resources
+            that people access through Web browsers.
+        </p>
 
-        <li>
-            <article>
-                <h3>1989 – Tim Berners-Lee Proposes the World Wide Web</h3>
+        <p>
+            It was invented by Tim Berners-Lee at CERN in 1989.
+            The Web uses the Internet to transfer information,
+            but it is not the Internet itself.
+        </p>
 
-                <p>
-                    While working at CERN, Tim Berners-Lee proposed a system
-                    for sharing and connecting information using hypertext.
-                </p>
+        <p>
+            Technologies such as HTML, HTTP, and URLs form the
+            foundation of the Web.
+        </p>
+    </section>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    This proposal introduced the basic idea that later developed
-                    into the World Wide Web.
-                </p>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://home.cern/science/computing/the-birth-of-the-web/">
-                        CERN – The Birth of the Web
-                    </a>
-                </p>
-            </article>
-        </li>
+    <section class="web-ai-timeline">
 
-        <li>
-            <article>
-                <h3>1990 – HTML, HTTP, and URLs Are Developed</h3>
+        <h2>Web Timeline</h2>
 
-                <p>
-                    Tim Berners-Lee developed the main technologies needed
-                    for the Web, including HTML, HTTP, and URLs.
-                </p>
+        <ol>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    Together, these technologies made it possible to structure
-                    Web pages, identify their locations, and transfer them
-                    between computers.
-                </p>
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="1989">1989</time>
+                        - Tim Berners-Lee Proposes the World Wide Web
+                    </h3>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://www.w3.org/about/history/">
-                        W3C – History of the Web
-                    </a>
-                </p>
-            </article>
-        </li>
+                    <p>
+                        While working at CERN, Tim Berners-Lee proposed
+                        a system for sharing and connecting information
+                        using hypertext.
+                    </p>
 
-        <li>
-            <article>
-                <h3>1990 – The First Browser, Web Server, and Website Are Created</h3>
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        This proposal introduced the basic idea that later
+                        developed into the World Wide Web.
+                    </p>
 
-                <p>
-                    Tim Berners-Lee created the first Web browser and editor,
-                    the first Web server, and the first website at CERN.
-                </p>
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://home.cern/science/computing/birth-web">
+                            CERN - The Birth of the Web
+                        </a>
+                    </p>
+                </article>
+            </li>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    These tools turned the Web from an idea into a working
-                    system that people could actually use.
-                </p>
 
-                <p>
-                    <strong>Sources:</strong>
-                    <a href="https://home.cern/science/computing/the-birth-of-the-web/">
-                        CERN – The Birth of the Web
-                    </a>
-                    |
-                    <a href="https://www.w3.org/about/history/">
-                        W3C – History
-                    </a>
-                </p>
-            </article>
-        </li>
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="1990">1990</time>
+                        - HTML, HTTP, and URLs Are Developed
+                    </h3>
 
-        <li>
-            <article>
-                <h3>1991 – The Web Becomes Available to a Wider Audience</h3>
+                    <p>
+                        Tim Berners-Lee developed the main technologies
+                        needed for the Web, including HTML, HTTP, and URLs.
+                    </p>
 
-                <p>
-                    The Web began spreading outside CERN and became available
-                    to more people using the Internet.
-                </p>
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        Together, these technologies made it possible to
+                        structure Web pages, identify their locations,
+                        and transfer them between computers.
+                    </p>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    Researchers and other users outside CERN could begin
-                    accessing, using, and developing the Web.
-                </p>
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://www.w3.org/about/history/">
+                            W3C - History of the Web
+                        </a>
+                    </p>
+                </article>
+            </li>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://home.cern/science/computing/the-birth-of-the-web/">
-                        CERN – The Birth of the Web
-                    </a>
-                </p>
-            </article>
-        </li>
 
-        <li>
-            <article>
-                <h3>1993 – CERN Makes Web Software Freely Available</h3>
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="1990">1990</time>
+                        - The First Browser, Web Server, and Website Are Created
+                    </h3>
 
-                <p>
-                    On April 30, 1993, CERN placed the World Wide Web software
-                    in the public domain and later released it under an open licence.
-                </p>
+                    <p>
+                        Tim Berners-Lee created the first Web browser and
+                        editor, the first Web server, and the first website
+                        at CERN.
+                    </p>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    Developers and organizations could use and improve Web
-                    technology freely, which helped the Web grow quickly
-                    around the world.
-                </p>
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        These tools turned the Web from an idea into a
+                        working system that people could actually use.
+                    </p>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://home.cern/science/computing/the-birth-of-the-web/">
-                        CERN – The Birth of the Web
-                    </a>
-                </p>
-            </article>
-        </li>
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://home.cern/science/computing/birth-web">
+                            CERN - The Birth of the Web
+                        </a>
+                    </p>
+                </article>
+            </li>
 
-        <li>
-            <article>
-                <h3>1994 – W3C Is Founded</h3>
 
-                <p>
-                    Tim Berners-Lee founded the World Wide Web Consortium,
-                    or W3C, at MIT in October 1994.
-                </p>
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="1991">1991</time>
+                        - The Web Becomes Available More Widely
+                    </h3>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    W3C created a central organization for developing common
-                    Web standards and improving compatibility between websites,
-                    browsers, and devices.
-                </p>
+                    <p>
+                        In 1991, the Web began becoming available to users
+                        outside CERN.
+                    </p>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://www.w3.org/about/history/">
-                        W3C – History
-                    </a>
-                </p>
-            </article>
-        </li>
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        This allowed more people and institutions to begin
+                        using and developing the Web.
+                    </p>
 
-        <li>
-            <article>
-                <h3>1996 – CSS Becomes a Web Standard</h3>
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://home.cern/science/computing/birth-web">
+                            CERN - The Birth of the Web
+                        </a>
+                    </p>
+                </article>
+            </li>
 
-                <p>
-                    W3C published Cascading Style Sheets Level 1, or CSS1,
-                    as a recommendation in December 1996.
-                </p>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    CSS allowed developers to control the visual appearance
-                    of Web pages separately from their HTML structure,
-                    including fonts, colours, margins, and other presentation features.
-                </p>
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="1993">1993</time>
+                        - CERN Makes Web Technology Freely Available
+                    </h3>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://www.w3.org/press-releases/1996/css1-rec/">
-                        W3C – CSS1 Recommendation
-                    </a>
-                </p>
-            </article>
-        </li>
+                    <p>
+                        CERN made the Web software freely available,
+                        allowing others to use and develop the technology.
+                    </p>
 
-        <li>
-            <article>
-                <h3>1997 – HTML 4 Becomes a W3C Recommendation</h3>
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        Making the technology openly available helped
+                        the Web grow rapidly around the world.
+                    </p>
 
-                <p>
-                    W3C published HTML 4.0 as an official recommendation
-                    on December 18, 1997.
-                </p>
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://home.cern/science/computing/birth-web">
+                            CERN - The Birth of the Web
+                        </a>
+                    </p>
+                </article>
+            </li>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    HTML 4 improved support for forms, tables, scripts,
-                    style sheets, accessibility, and international content,
-                    while helping improve compatibility between Web technologies.
-                </p>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://www.w3.org/press-releases/1997/html40-rec/">
-                        W3C – HTML 4.0 Recommendation
-                    </a>
-                </p>
-            </article>
-        </li>
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="1994">1994</time>
+                        - The World Wide Web Consortium Is Founded
+                    </h3>
 
-        <li>
-            <article>
-                <h3>2008 – The First Public Working Draft of HTML5 Is Published</h3>
+                    <p>
+                        Tim Berners-Lee founded the World Wide Web Consortium,
+                        or W3C, at MIT.
+                    </p>
 
-                <p>
-                    W3C published the first public working draft of HTML5
-                    on January 22, 2008.
-                </p>
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        The W3C helped develop common Web standards so
+                        browsers and websites could work more consistently.
+                    </p>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    HTML5 was designed to modernize the Web and provide
-                    better support for applications, multimedia, and more
-                    consistent behaviour across browsers.
-                </p>
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://www.w3.org/about/history/">
+                            W3C - History
+                        </a>
+                    </p>
+                </article>
+            </li>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://www.w3.org/blog/2008/html5/">
-                        W3C – HTML5 First Public Working Draft
-                    </a>
-                </p>
-            </article>
-        </li>
 
-        <li>
-            <article>
-                <h3>2014 – HTML5 Becomes an Official W3C Recommendation</h3>
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="1996">1996</time>
+                        - CSS1 Becomes a W3C Recommendation
+                    </h3>
 
-                <p>
-                    On October 28, 2014, HTML5 became an official
-                    W3C recommendation.
-                </p>
+                    <p>
+                        CSS Level 1 became an official W3C Recommendation
+                        in 1996.
+                    </p>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    HTML5 introduced and standardized features for modern
-                    Web applications, including new semantic elements
-                    and improved support for multimedia and browser-based applications.
-                </p>
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        CSS allowed the visual appearance of Web pages to
+                        be separated from their HTML structure.
+                    </p>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://www.w3.org/TR/2014/REC-html5-20141028/">
-                        W3C – HTML5 Recommendation
-                    </a>
-                </p>
-            </article>
-        </li>
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://www.w3.org/press-releases/1996/css1-rec/">
+                            W3C - CSS1 Recommendation
+                        </a>
+                    </p>
+                </article>
+            </li>
 
-        <li>
-            <article>
-                <h3>2019 – WebAssembly Becomes a Web Standard</h3>
 
-                <p>
-                    In December 2019, W3C made the WebAssembly Core Specification
-                    an official Web standard.
-                </p>
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="1997">1997</time>
+                        - HTML 4.0 Becomes a W3C Recommendation
+                    </h3>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    WebAssembly allows high-performance code to run efficiently
-                    in Web browsers, making more powerful and complex Web
-                    applications possible.
-                </p>
+                    <p>
+                        HTML 4.0 became a W3C Recommendation in 1997.
+                    </p>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://www.w3.org/press-releases/2019/wasm/">
-                        W3C – WebAssembly Recommendation
-                    </a>
-                </p>
-            </article>
-        </li>
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        It expanded and standardized the features available
+                        for creating Web pages.
+                    </p>
 
-        <li>
-            <article>
-                <h3>2023 – WCAG 2.2 Becomes a W3C Recommendation</h3>
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://www.w3.org/press-releases/1997/html40-rec/">
+                            W3C - HTML 4.0 Recommendation
+                        </a>
+                    </p>
+                </article>
+            </li>
 
-                <p>
-                    On October 5, 2023, W3C published the Web Content
-                    Accessibility Guidelines 2.2 as a Web standard.
-                </p>
 
-                <p>
-                    <strong>Why it mattered:</strong>
-                    WCAG 2.2 added new accessibility requirements designed
-                    to make Web content easier to use for people with different disabilities.
-                </p>
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="2008">2008</time>
+                        - HTML5 Development Becomes Public
+                    </h3>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/">
-                        W3C Web Accessibility Initiative – WCAG 2.2
-                    </a>
-                </p>
-            </article>
-        </li>
+                    <p>
+                        The first public working draft of HTML5 was
+                        published in 2008.
+                    </p>
 
-        <li>
-            <article>
-                <h3>2026 – The Web Continues to Evolve</h3>
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        HTML5 introduced work toward a more modern Web
+                        with stronger support for multimedia and
+                        interactive applications.
+                    </p>
 
-                <p>
-                    HTML is currently maintained as a Living Standard by WHATWG.
-                    The specification continues to be updated as Web technology develops.
-                </p>
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://www.w3.org/blog/2008/html5/">
+                            W3C - HTML5
+                        </a>
+                    </p>
+                </article>
+            </li>
 
-                <p>
-                    <strong>Why it matters:</strong>
-                    The Web is not a finished technology. Its standards continue
-                    to change as browsers, applications, devices, accessibility needs,
-                    and user expectations evolve.
-                </p>
 
-                <p>
-                    <strong>Source:</strong>
-                    <a href="https://html.spec.whatwg.org/multipage/">
-                        WHATWG – HTML Living Standard
-                    </a>.
-                    The standard was still being actively updated in September 2026.
-                </p>
-            </article>
-        </li>
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="2014">2014</time>
+                        - HTML5 Becomes a W3C Recommendation
+                    </h3>
 
-    </ol>
-</section>
+                    <p>
+                        HTML5 became an official W3C Recommendation
+                        in October 2014.
+                    </p>
 
-<section>
-    <h2>Core Technologies of the Web</h2>
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        HTML5 became an important foundation for modern
+                        websites and Web applications.
+                    </p>
 
-    <dl>
-        <dt><strong>HTML – HyperText Markup Language</strong></dt>
-        <dd>
-            HTML provides the structure and meaning of a Web page.
-            It defines elements such as headings, paragraphs, links,
-            images, forms, and sections.
-        </dd>
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://www.w3.org/TR/2014/REC-html5-20141028/">
+                            W3C - HTML5 Recommendation
+                        </a>
+                    </p>
+                </article>
+            </li>
 
-        <dt><strong>HTTP – Hypertext Transfer Protocol</strong></dt>
-        <dd>
-            HTTP is used for communication between Web browsers and Web servers.
-            A browser sends a request, and the server responds with the requested
-            Web resource.
-        </dd>
 
-        <dt><strong>URL – Uniform Resource Locator</strong></dt>
-        <dd>
-            A URL identifies the location of a page or another resource
-            on the Web and tells the browser where to find it.
-        </dd>
-    </dl>
-</section>
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="2019">2019</time>
+                        - WebAssembly Becomes a Web Standard
+                    </h3>
+
+                    <p>
+                        WebAssembly became a W3C Recommendation in 2019.
+                    </p>
+
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        WebAssembly made it possible to run high-performance
+                        applications efficiently inside Web browsers.
+                    </p>
+
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://www.w3.org/press-releases/2019/wasm/">
+                            W3C - WebAssembly Recommendation
+                        </a>
+                    </p>
+                </article>
+            </li>
+
+
+            <li>
+                <article>
+                    <h3>
+                        <time datetime="2023">2023</time>
+                        - WCAG 2.2 Is Published
+                    </h3>
+
+                    <p>
+                        The Web Content Accessibility Guidelines 2.2
+                        were published to improve accessibility for people
+                        with disabilities.
+                    </p>
+
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        Accessibility standards help make websites usable
+                        by a wider range of people.
+                    </p>
+
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/">
+                            W3C - WCAG 2.2
+                        </a>
+                    </p>
+                </article>
+            </li>
+
+
+            <li>
+                <article>
+                    <h3>2026 - The Web Today</h3>
+
+                    <p>
+                        HTML continues to be maintained as a Living Standard
+                        by WHATWG and is regularly updated as the Web evolves.
+                    </p>
+
+                    <p>
+                        <strong>Why it mattered:</strong>
+                        The Web continues to develop instead of remaining
+                        fixed to one final version of HTML.
+                    </p>
+
+                    <p>
+                        <strong>Source:</strong>
+                        <a href="https://html.spec.whatwg.org/multipage/">
+                            WHATWG - HTML Living Standard
+                        </a>
+                    </p>
+                </article>
+            </li>
+
+        </ol>
+
+    </section>
+
+
+    <section>
+        <h2>Core Technologies of the Web</h2>
+
+        <dl>
+            <dt>HTML</dt>
+            <dd>
+                HTML provides the structure and meaning of content
+                on a Web page.
+            </dd>
+
+            <dt>HTTP</dt>
+            <dd>
+                HTTP is the communication protocol used to transfer
+                Web resources between browsers and servers.
+            </dd>
+
+            <dt>URL</dt>
+            <dd>
+                A URL identifies the location of a resource on the Web.
+            </dd>
+        </dl>
+    </section>
+
+</main>
 
 {% endblock %}

@@ -7168,3 +7168,73 @@ main > section:first-of-type > ul > li > a::after {
     }
 
 }
+
+/* ========================================
+   AI TIMELINE FIXES
+   ======================================== */
+
+
+/* Remove any horizontal separators from Internet AI */
+
+.internet-ai-timeline hr {
+    display: none;
+}
+
+
+/* Keep spacing between Internet AI milestones */
+
+.internet-ai-timeline article {
+    margin-bottom: 1.5rem;
+}
+
+
+/* ========================================
+   WEB AI TIMELINE - MATCH OTHER TIMELINES
+   ======================================== */
+
+.web-ai-timeline ol {
+    width: 100%;
+    padding-left: 0;
+}
+
+.web-ai-timeline li {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Remove old width restriction */
+
+.web-ai-timeline li article {
+    max-width: none !important;
+}
+
+
+/* 1st, 3rd, 5th... */
+
+.web-ai-timeline li:nth-child(odd) article {
+    width: 86%;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+
+/* 2nd, 4th, 6th... */
+
+.web-ai-timeline li:nth-child(even) article {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+/* Mobile */
+
+@media (max-width: 599px) {
+
+    .web-ai-timeline li:nth-child(odd) article,
+    .web-ai-timeline li:nth-child(even) article {
+        width: 100%;
+    }
+
+}
