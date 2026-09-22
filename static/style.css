@@ -1,72 +1,83 @@
 /* =====================================================
    1. DESIGN VARIABLES
-
-   This block stores reusable colors, fonts, spacing,
-   and sizes so the whole design is easy to change.
+   :root creates variables that can be reused everywhere.
    ===================================================== */
 
 :root {
-    --bg-dark: #071426;
-    --bg-main: #0d2740;
+    --bg-dark: #071426;          /* Darkest background color */
+    --bg-main: #0d2740;          /* Main blue background */
 
-    --blue: #8fe7ff;
-    --teal: #67ddd5;
-    --gold: #f0c76b;
-    --paper: #fff6df;
+    --blue: #8fe7ff;             /* Light blue accent */
+    --teal: #67ddd5;             /* Teal accent */
+    --gold: #f0c76b;             /* Gold accent */
+    --paper: #fff6df;            /* Light cream color */
 
-    --text-main: #f7fcff;
-    --text-soft: #d8e8ef;
-    --text-muted: #9fb8c6;
+    --text-main: #f7fcff;        /* Main text color */
+    --text-soft: #d8e8ef;        /* Softer paragraph color */
+    --text-muted: #9fb8c6;       /* Less important text */
 
     --border: rgba(143, 231, 255, 0.25);
+    /* Transparent blue border */
+
     --card-bg: rgba(143, 231, 255, 0.08);
+    /* Transparent background for cards */
 
     --font-body: "Segoe UI", Arial, sans-serif;
+    /* Main font. Browser tries Segoe UI first */
+
     --font-heading: Georgia, "Times New Roman", serif;
+    /* Font used for headings */
 
-    --space-small: 0.8rem;
-    --space-medium: 1.3rem;
-    --space-large: 2rem;
-    --space-xl: 3rem;
+    --space-small: 0.8rem;       /* Small spacing */
+    --space-medium: 1.3rem;      /* Medium spacing */
+    --space-large: 2rem;         /* Large spacing */
+    --space-xl: 3rem;            /* Extra large spacing */
 
-    --radius: 18px;
+    --radius: 18px;              /* Rounded corner size */
 
-    --max-width: 1080px;
+    --max-width: 1080px;         /* Maximum width of content */
 }
 
 
 /* =====================================================
    2. BASIC RESET
-
-   This makes element sizing easier to control and
-   enables smooth scrolling.
    ===================================================== */
 
 * {
     box-sizing: border-box;
+    /* Width includes padding and border.
+       This makes sizes easier to calculate. */
 }
 
 html {
     scroll-behavior: smooth;
+    /* Makes scrolling between page locations smooth */
 }
 
 
 /* =====================================================
    3. BODY
-
-   This sets the main font, text color and animated
-   background for the whole website.
+   Controls the whole visible page.
    ===================================================== */
 
 body {
     margin: 0;
+    /* Removes browser's default outside margin */
+
     min-height: 100vh;
+    /* Page is at least the full screen height */
+
     overflow-x: hidden;
+    /* Prevents horizontal scrolling */
 
     font-family: var(--font-body);
+    /* Uses the font stored in --font-body */
+
     line-height: 1.7;
+    /* Adds comfortable vertical spacing between lines */
 
     color: var(--text-main);
+    /* Default text color */
 
     background:
         radial-gradient(
@@ -79,56 +90,71 @@ body {
             var(--bg-dark),
             var(--bg-main)
         );
+    /* Combines a glowing circular gradient with
+       a dark vertical background gradient */
 
     animation:
         backgroundMove 12s ease-in-out infinite alternate;
+    /*
+       backgroundMove = animation name
+       12s = takes 12 seconds
+       ease-in-out = starts and ends slowly
+       infinite = repeats forever
+       alternate = runs forward then backward
+    */
 }
 
 
 /* =====================================================
    4. GENERAL TEXT
-
-   This gives paragraphs, links and lists their shared
-   colors and spacing.
    ===================================================== */
 
 p,
 li,
 dd {
     color: var(--text-soft);
+    /* Gives paragraphs, list items and definitions
+       a softer text color */
 }
 
 a {
     color: var(--blue);
+    /* Makes links blue */
 }
 
 a:hover {
     color: var(--gold);
+    /* :hover changes the link when mouse is over it */
 }
 
 ul,
 ol {
     padding-left: 1.3rem;
+    /* Adds space before list items */
 }
 
 li {
     margin-bottom: var(--space-small);
+    /* Adds space under each list item */
 }
 
 
 /* =====================================================
    5. DECORATIVE BACKGROUND
-
-   This adds two simple glowing areas behind the page
-   using only CSS.
    ===================================================== */
 
 .background-effects {
     position: fixed;
+    /* Keeps it fixed to the screen */
+
     inset: 0;
+    /* Same as top:0; right:0; bottom:0; left:0 */
+
     z-index: -1;
+    /* Places it behind the page content */
 
     pointer-events: none;
+    /* User cannot click/interact with this element */
 
     background:
         radial-gradient(
@@ -141,68 +167,85 @@ li {
             rgba(143, 231, 255, 0.10),
             transparent 25%
         );
+    /* Creates two soft glowing circles */
 }
 
 
 /* =====================================================
    6. HEADER
-
-   This styles the shared header at the top of every
-   page.
    ===================================================== */
 
 .site-header {
     padding:
         var(--space-large)
         var(--space-medium);
+    /*
+       First value = top and bottom
+       Second value = left and right
+    */
 
     background:
         rgba(7, 20, 38, 0.92);
+    /* Dark transparent header background */
 
     border-bottom:
         1px solid var(--border);
+    /* Adds a thin line under the header */
 
     animation:
         fadeDown 0.6s ease;
+    /* Plays the fadeDown animation when page loads */
 }
 
 
 /* =====================================================
    7. BRAND
-
-   This arranges the EH logo and website title inside
-   the header.
+   Contains the logo and website title.
    ===================================================== */
 
 .site-brand {
     max-width: var(--max-width);
+    /* Stops brand area becoming wider than 1080px */
 
     margin:
         0 auto
         var(--space-large);
+    /*
+       top = 0
+       left/right = auto, which centers it
+       bottom = large spacing
+    */
 
     display: flex;
+    /* Activates Flexbox */
+
     flex-direction: column;
+    /* On phones, elements are placed vertically */
 
     gap: var(--space-medium);
+    /* Creates space between logo and title */
 }
 
 
 /* =====================================================
    8. LOGO
-
-   This creates the EH badge using CSS instead of an
-   image.
    ===================================================== */
 
 .site-logo {
     width: 55px;
+    /* Logo width */
+
     height: 55px;
+    /* Logo height */
 
     display: grid;
+    /* Activates CSS Grid */
+
     place-items: center;
+    /* Centers EH horizontally and vertically */
 
     border-radius: 50%;
+    /* Makes the logo circular */
 
     background:
         linear-gradient(
@@ -210,443 +253,537 @@ li {
             var(--paper),
             var(--gold)
         );
+    /* Cream-to-gold gradient */
 
     color: var(--bg-dark);
+    /* Color of EH letters */
 
     font-family: var(--font-heading);
+    /* Uses heading font */
+
     font-weight: bold;
+    /* Makes EH bold */
 }
 
 
 /* =====================================================
    9. SITE TITLE
-
-   This controls the title and subtitle displayed in
-   the header.
    ===================================================== */
 
 .site-title-group h1 {
     margin: 0;
+    /* Removes default h1 margin */
 
     font-family: var(--font-heading);
+    /* Uses heading font */
 
     font-size:
         clamp(1.7rem, 6vw, 2.5rem);
+    /*
+       clamp(minimum, preferred, maximum)
+
+       Minimum = 1.7rem
+       Preferred = 6% of viewport width
+       Maximum = 2.5rem
+
+       Makes font responsive.
+    */
 
     color: var(--paper);
+    /* Cream heading color */
 }
 
 .site-title-group p {
     margin:
         0.3rem 0 0;
+    /* Small space above subtitle */
 
     color: var(--text-muted);
+    /* Makes subtitle less visually strong */
 }
 
 
 /* =====================================================
    10. NAVIGATION
-
-   This uses Flexbox to arrange the navigation links and
-   allows them to wrap on smaller screens.
+   Uses FLEXBOX.
    ===================================================== */
 
 .site-nav {
     max-width: var(--max-width);
+    /* Limits menu width */
 
     margin: 0 auto;
+    /* Centers navigation */
 
     display: flex;
+    /* Activates Flexbox */
+
     flex-wrap: wrap;
+    /* Allows links to move to another row
+       if there is not enough space */
 
     align-items: center;
+    /* Vertically centers Flexbox items */
+
     justify-content: center;
+    /* Horizontally centers menu items */
 
     gap: 0.6rem;
+    /* Space between links */
 }
 
 
 /* =====================================================
    11. NAVIGATION LINKS
-
-   This styles each menu link and gives it a hover and
-   active-page effect.
    ===================================================== */
 
 .site-nav a {
     flex:
         1 1 140px;
+    /*
+       flex-grow: 1
+       flex-shrink: 1
+       flex-basis: 140px
+
+       Links can grow, shrink, and start at 140px.
+    */
 
     padding:
         0.6rem
         0.8rem;
+    /* Inner space inside each navigation link */
 
     text-align: center;
+    /* Centers link text */
+
     text-decoration: none;
+    /* Removes underline */
 
     border-radius: 10px;
+    /* Rounds the link corners */
 
     transition:
         background 0.2s ease,
         transform 0.2s ease;
+    /* Makes hover changes happen smoothly */
 }
 
 
-/* :hover is a pseudo-class.
-   It activates when the mouse is over the link. */
+/* :hover is a CSS pseudo-class.
+   It activates when the mouse is over an element. */
 
 .site-nav a:hover,
 .site-nav a.active {
     background:
         rgba(143, 231, 255, 0.10);
+    /* Adds transparent blue background */
 
     color: var(--paper);
+    /* Changes text to cream */
 
     transform:
         translateY(-2px);
+    /* Moves link upward by 2px */
 }
 
 
 /* =====================================================
    12. NAVIGATION ICONS
-
-   These pseudo-elements add simple icons before the
-   links without adding extra HTML.
+   ::before is a pseudo-element.
+   It creates content before the real link text.
    ===================================================== */
 
 .site-nav a:nth-child(1)::before {
     content: "⌂ ";
+    /* Adds Home symbol before first nav link */
 }
 
 .site-nav a:nth-child(2)::before,
 .site-nav a:nth-child(4)::before {
     content: "◎ ";
+    /* Adds Internet symbol to links 2 and 4 */
 }
 
 .site-nav a:nth-child(3)::before,
 .site-nav a:nth-child(5)::before {
     content: "◇ ";
+    /* Adds Web symbol to links 3 and 5 */
 }
 
 
 /* =====================================================
    13. MAIN CONTAINER
-
-   This keeps the main content centered and prevents it
-   from becoming too wide.
    ===================================================== */
 
 .container {
     width:
         calc(100% - 2rem);
+    /* Makes content almost full width with side space */
 
     max-width: var(--max-width);
+    /* Stops content becoming wider than 1080px */
 
     margin:
         var(--space-xl)
         auto;
+    /* Adds vertical space and centers content */
 
     min-height: 55vh;
+    /* Main content is at least 55% of screen height */
 }
 
 
 /* =====================================================
    14. HEADINGS
-
-   This creates a clear size and color hierarchy between
-   the main title and smaller headings.
    ===================================================== */
 
 main > h1,
 h2 {
     font-family: var(--font-heading);
+    /* Gives main headings the historical serif font */
 }
 
 main > h1 {
     color: var(--paper);
+    /* Main page title color */
 
     font-size:
         clamp(2rem, 8vw, 3.5rem);
+    /* Responsive page title size */
 }
 
 h2 {
     color: var(--blue);
+    /* Section headings are blue */
 
     font-size:
         clamp(1.5rem, 5vw, 2rem);
+    /* Responsive section heading size */
 }
 
 h3 {
     color: var(--gold);
+    /* Smaller headings use gold */
 }
 
 
 /* =====================================================
    15. HISTORY SECTIONS
-
-   This creates the vertical timeline used on the Web
-   and Internet history pages.
    ===================================================== */
 
 section:not(.weekly-work) {
     position: relative;
+    /*
+       Allows ::before to be positioned relative
+       to this section.
+    */
 
     margin-bottom:
         var(--space-xl);
+    /* Space between sections */
 
     padding-left:
         var(--space-large);
+    /* Space between timeline and text */
 
     border-left:
         2px solid var(--border);
+    /* Creates vertical timeline line */
 }
 
 
 /* =====================================================
-   16. SECTION TIMELINE DOT
-
-   This pseudo-element creates the gold dot beside each
-   main timeline section.
+   16. TIMELINE DOT
    ===================================================== */
 
 section:not(.weekly-work)::before {
     content: "";
+    /* Creates an empty pseudo-element */
 
     position: absolute;
+    /* Allows precise positioning */
 
     top: 5px;
+    /* Places dot near top of section */
+
     left: -7px;
+    /* Places dot on timeline line */
 
     width: 12px;
     height: 12px;
+    /* Dot size */
 
     border-radius: 50%;
+    /* Makes it circular */
 
     background: var(--gold);
+    /* Gold dot */
 }
 
 
 /* =====================================================
    17. ARTICLE CARDS
-
-   This styles historical milestones as simple cards.
    ===================================================== */
 
 article {
     margin:
         var(--space-medium)
         0;
+    /* Space above and below article */
 
     padding:
         var(--space-medium);
+    /* Space inside article */
 
     background:
         var(--card-bg);
+    /* Transparent blue card background */
 
     border:
         1px solid var(--border);
+    /* Thin border */
 
     border-radius:
         var(--radius);
+    /* Rounded corners */
 
     transition:
         transform 0.25s ease,
         border-color 0.25s ease;
+    /* Smooth hover animation */
 }
 
 article:hover {
     transform:
         translateY(-4px);
+    /* Moves article upward */
 
     border-color:
         var(--gold);
+    /* Border becomes gold */
 }
 
 
 /* =====================================================
    18. THREE KEY TECHNOLOGIES
 
-   This removes the card/square appearance specifically
-   from the third section, which contains the Three Key
-   Technologies on the Internet and Web research pages.
+   nth-of-type(3) selects the third section.
+   We remove the normal card appearance here.
    ===================================================== */
 
 main > section:nth-of-type(3) article {
     margin-bottom:
         var(--space-large);
+    /* Adds space between technologies */
 
     padding: 0;
+    /* Removes card padding */
 
     background: transparent;
+    /* Removes card background */
 
     border: none;
+    /* Removes card border */
+
     border-radius: 0;
+    /* Removes rounded corners */
 
     transform: none;
+    /* Removes movement */
 }
-
-
-/* This removes the normal article hover effect from the
-   Three Key Technologies entries. */
 
 main > section:nth-of-type(3) article:hover {
     transform: none;
+    /* Prevents movement on hover */
 
     border: none;
+    /* Makes sure no border appears */
 }
 
 
 /* =====================================================
    19. YEARS
-
-   This highlights dates in the historical timelines.
    ===================================================== */
 
 time {
     color: var(--gold);
+    /* Makes year gold */
 
     font-weight: bold;
+    /* Makes year stand out */
 }
 
 
 /* =====================================================
    20. WEEKLY WORK SECTION
-
-   This removes the timeline appearance from the home
-   page Weekly Work section.
    ===================================================== */
 
 .weekly-work {
     border: 0;
+    /* Removes history timeline border */
 
     padding: 0;
+    /* Removes history timeline padding */
 }
 
 .weekly-work::before {
     display: none;
+    /* Removes history timeline dot */
 }
 
 
 /* =====================================================
    21. WEEK GROUP
-
-   This creates spacing between Week 1, Week 2 and any
-   future weeks.
    ===================================================== */
 
 .week-group {
     margin-bottom:
         var(--space-xl);
+    /* Space between Week 1, Week 2, etc. */
 }
 
 .week-title {
     margin-bottom:
         var(--space-medium);
+    /* Space below week title */
 
     color: var(--gold);
+    /* Week titles are gold */
 }
 
 
 /* =====================================================
    22. WEEKLY WORK GRID
-
-   This uses CSS Grid and starts with one column on
-   smaller phone screens.
+   Uses CSS GRID.
    ===================================================== */
 
 .weekly-list {
     margin: 0;
+    /* Removes default margin */
+
     padding: 0;
+    /* Removes default list padding */
 
     list-style: none;
+    /* Removes bullet points */
 
     display: grid;
+    /* Activates CSS Grid */
 
     grid-template-columns:
         1fr;
+    /*
+       Creates one column on phones.
+       1fr means one fraction of available space.
+    */
 
     gap:
         var(--space-medium);
+    /* Space between cards */
 }
 
 
 /* =====================================================
    23. WORK CARD
-
-   This styles each Weekly Work project as a clickable
-   card.
    ===================================================== */
 
 .work-card {
     margin: 0;
+    /* Removes default list-item margin */
 }
 
 .work-card > a {
     position: relative;
+    /* Needed because icon is absolutely positioned */
 
     min-height: 95px;
+    /* Minimum card height */
 
     padding:
         var(--space-medium)
         var(--space-medium)
         var(--space-medium)
         3.7rem;
+    /*
+       More padding on left to make room
+       for the icon.
+    */
 
     display: flex;
+    /* Uses Flexbox inside each card */
 
     align-items: center;
+    /* Vertically centers content */
+
     justify-content: space-between;
+    /* Pushes text left and arrow right */
 
     text-decoration: none;
+    /* Removes link underline */
 
     color: var(--text-main);
+    /* Card text color */
 
     background:
         var(--card-bg);
+    /* Card background */
 
     border:
         1px solid var(--border);
+    /* Card border */
 
     border-radius:
         var(--radius);
+    /* Rounded card corners */
 
     transition:
         transform 0.25s ease,
         border-color 0.25s ease;
+    /* Smooth hover movement */
 }
 
 .work-card > a:hover {
     transform:
         translateY(-4px);
+    /* Moves card upward */
 
     border-color:
         var(--gold);
+    /* Border becomes gold */
 }
 
 
 /* =====================================================
    24. CARD ICON
-
-   This pseudo-element creates the icon box displayed
-   on the left side of each Weekly Work card.
    ===================================================== */
 
 .work-card > a::before {
     position: absolute;
+    /* Positions icon independently */
 
     left: 0.8rem;
+    /* Distance from left side */
+
     top: 50%;
+    /* Moves top edge to middle of card */
 
     transform:
         translateY(-50%);
+    /* Moves icon upward by half its own height,
+       perfectly centering it vertically */
 
     width: 38px;
     height: 38px;
+    /* Icon box size */
 
     display: grid;
+    /* Uses Grid */
+
     place-items: center;
+    /* Centers icon */
 
     border-radius: 12px;
+    /* Rounds icon box */
 
     background:
         linear-gradient(
@@ -654,67 +791,71 @@ time {
             var(--blue),
             var(--teal)
         );
+    /* Blue-to-teal icon background */
 
     color: var(--bg-dark);
+    /* Icon text color */
 
     font-weight: bold;
+    /* Makes icon text bold */
 }
 
 
 /* =====================================================
    25. CARD ARROW
-
-   This pseudo-element places an arrow at the right side
-   of every Weekly Work card.
    ===================================================== */
 
 .work-card > a::after {
     content: "→";
+    /* Adds arrow after card content */
 
     color: var(--gold);
+    /* Gold arrow */
 
     font-weight: bold;
+    /* Makes arrow stronger */
 }
 
 
 /* =====================================================
    26. DIFFERENT CARD ICONS
-
-   These classes give the launch, Internet and Web cards
-   their own symbols.
    ===================================================== */
 
 .work-card.launch > a::before {
     content: "↗";
+    /* Launch icon */
 }
 
 .work-card.internet > a::before,
 .work-card.internet-ai > a::before {
     content: "🌐";
+    /* Internet icon */
 }
 
 .work-card.web > a::before,
 .work-card.web-ai > a::before {
     content: "WWW";
+    /* Web icon */
 
     font-size: 0.65rem;
+    /* Makes WWW fit inside icon box */
 }
 
 
 /* =====================================================
    27. DEFINITION LISTS
-
-   This styles technical terms and explanations if a
-   page uses dt and dd elements.
    ===================================================== */
 
 dt {
     margin-top:
         var(--space-medium);
+    /* Space before each definition term */
 
     color: var(--gold);
+    /* Technical term color */
 
     font-weight: bold;
+    /* Makes term strong */
 }
 
 dd {
@@ -722,62 +863,78 @@ dd {
         0.4rem 0
         var(--space-medium)
         var(--space-medium);
+    /* Controls spacing around explanation */
 }
 
 
 /* =====================================================
    28. FOOTER
-
-   This styles the footer displayed at the bottom of
-   every page.
    ===================================================== */
 
 .site-footer {
     margin-top:
         var(--space-xl);
+    /* Space between main content and footer */
 
     padding:
         var(--space-large);
+    /* Inner footer spacing */
 
     text-align: center;
+    /* Centers footer text */
 
     background:
         rgba(7, 20, 38, 0.95);
+    /* Dark footer background */
 
     border-top:
         1px solid var(--border);
+    /* Line above footer */
 }
 
 .site-footer p {
     max-width: 800px;
+    /* Prevents very long text lines */
 
     margin:
         0.4rem auto;
+    /* Centers paragraphs */
 
     color: var(--text-muted);
+    /* Less prominent footer text */
 
     font-size: 0.85rem;
+    /* Smaller footer text */
 }
 
 
 /* =====================================================
-   29. TABLET LAYOUT
+   29. TABLET RESPONSIVE DESIGN
 
-   At 600px and above, the logo moves beside the title
-   and Weekly Work can use multiple columns.
+   @media applies these rules only when the screen is
+   at least 600px wide.
    ===================================================== */
 
 @media (min-width: 600px) {
 
     .site-brand {
         flex-direction: row;
+        /*
+           Logo and title move from vertical
+           to horizontal.
+        */
 
         align-items: center;
+        /* Vertically centers them */
     }
 
     .site-nav a {
         flex:
             0 1 auto;
+        /*
+           Links no longer need equal width.
+           They size mostly based on their content.
+        */
     }
 
     .weekly-list {
@@ -786,15 +943,26 @@ dd {
                 auto-fit,
                 minmax(240px, 1fr)
             );
+
+        /*
+           repeat() creates repeated columns.
+
+           auto-fit creates as many columns
+           as can fit.
+
+           minmax(240px, 1fr) means:
+           each card must be at least 240px wide,
+           but can grow to fill available space.
+        */
     }
 }
 
 
 /* =====================================================
-   30. DESKTOP LAYOUT
+   30. DESKTOP RESPONSIVE DESIGN
 
-   At 900px and above, the navigation spreads evenly
-   across the available space.
+   These rules activate when the screen is at least
+   900px wide.
    ===================================================== */
 
 @media (min-width: 900px) {
@@ -803,63 +971,73 @@ dd {
         padding:
             var(--space-xl)
             5%;
+        /* Adds more space on desktop */
     }
 
     .site-nav {
         justify-content:
             space-evenly;
+        /*
+           Gives equal space around navigation
+           menu items.
+        */
     }
 
     .container {
         width:
             min(88%, var(--max-width));
+        /*
+           Uses whichever is smaller:
+           88% of screen OR 1080px.
+        */
     }
 
     article {
         padding:
             var(--space-large);
+        /* Makes article cards more spacious */
     }
-
-
-    /* Keeps Three Key Technologies without cards even
-       though normal articles get larger desktop padding. */
 
     main > section:nth-of-type(3) article {
         padding: 0;
+        /*
+           Keeps Three Key Technologies without
+           cards even though normal articles get
+           more padding on desktop.
+        */
     }
 }
 
 
 /* =====================================================
    31. HEADER ANIMATION
-
-   This makes the header move slightly downward while
-   fading in when the page loads.
+   @keyframes describes the steps of an animation.
    ===================================================== */
 
 @keyframes fadeDown {
 
     from {
         opacity: 0;
+        /* Header starts invisible */
 
         transform:
             translateY(-15px);
+        /* Starts slightly above its final position */
     }
 
     to {
         opacity: 1;
+        /* Becomes fully visible */
 
         transform:
             translateY(0);
+        /* Returns to normal position */
     }
 }
 
 
 /* =====================================================
    32. BACKGROUND ANIMATION
-
-   This slowly changes the background position to give
-   the page a small amount of movement.
    ===================================================== */
 
 @keyframes backgroundMove {
@@ -868,21 +1046,23 @@ dd {
         background-position:
             0% 0%,
             0% 0%;
+        /* Starting positions of gradients */
     }
 
     to {
         background-position:
             8% 5%,
             0% 0%;
+        /* Slightly moves the first gradient */
     }
 }
 
 
 /* =====================================================
-   33. REDUCED MOTION
+   33. ACCESSIBILITY - REDUCED MOTION
 
-   This accessibility rule removes animations when the
-   user's device is configured to prefer less motion.
+   Some users configure their device to reduce motion.
+   This rule respects that setting.
    ===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -891,7 +1071,9 @@ dd {
     *::before,
     *::after {
         animation: none !important;
+        /* Turns animations off */
 
         transition: none !important;
+        /* Turns transition effects off */
     }
 }
