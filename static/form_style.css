@@ -1,0 +1,556 @@
+/* =====================================================
+   ENGINEERING STUDENT PROFILE FORM
+
+   This file styles only the profile form.
+   It keeps the same colors and design variables
+   already used by the main website.
+   ===================================================== */
+
+
+/* =====================================================
+   1. WHOLE FORM
+   ===================================================== */
+
+form {
+    max-width: 850px;
+
+    margin:
+        var(--space-large)
+        auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-large);
+}
+
+/*
+   max-width:
+   Stops the form from becoming too wide.
+
+   margin auto:
+   Centers the form horizontally.
+
+   display:flex + flex-direction:column:
+   Places the main form sections below each other.
+
+   gap:
+   Adds space between the sections.
+*/
+
+
+/* =====================================================
+   2. MAIN FORM SECTIONS
+   ===================================================== */
+
+form > fieldset {
+    padding:
+        var(--space-large);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--card-bg);
+}
+
+/*
+   Each main fieldset becomes a clean card.
+
+   These are:
+   Personal Information
+   Academic Information
+   Technical Background
+   Final Year Project
+*/
+
+
+/* =====================================================
+   3. SECTION TITLES
+   ===================================================== */
+
+legend {
+    padding:
+        0 0.5rem;
+
+    color:
+        var(--gold);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        1.2rem;
+
+    font-weight:
+        bold;
+}
+
+/*
+   legend is the title of each fieldset.
+*/
+
+
+/* =====================================================
+   4. NORMAL LABELS
+   ===================================================== */
+
+form > fieldset > label {
+    display: block;
+
+    margin-top:
+        var(--space-medium);
+
+    margin-bottom:
+        0.4rem;
+
+    color:
+        var(--text-main);
+
+    font-weight:
+        600;
+}
+
+/*
+   display:block is important.
+
+   It makes the label take its own line.
+
+   Example:
+
+   Full Name:
+   [________________________]
+*/
+
+
+/* =====================================================
+   5. NORMAL INPUTS
+   ===================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="number"],
+select,
+textarea {
+
+    width: 100%;
+
+    padding:
+        0.7rem 0.8rem;
+
+    font-family:
+        var(--font-body);
+
+    font-size:
+        1rem;
+
+    color:
+        var(--text-main);
+
+    background:
+        rgba(7, 20, 38, 0.70);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    box-sizing:
+        border-box;
+}
+
+/*
+   width:100%
+   Makes the input use the available width.
+
+   padding:
+   Adds space inside the input.
+
+   box-sizing:border-box:
+   Keeps the input width easy to control.
+*/
+
+
+/* =====================================================
+   6. FOCUS
+   ===================================================== */
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline:
+        2px solid var(--blue);
+
+    outline-offset:
+        2px;
+}
+
+/*
+   :focus happens when the user clicks
+   or types inside a field.
+*/
+
+
+/* =====================================================
+   7. PLACEHOLDER TEXT
+   ===================================================== */
+
+::placeholder {
+    color:
+        var(--text-muted);
+
+    opacity:
+        0.8;
+}
+
+/*
+   Styles text such as:
+
+   "First name and last name"
+*/
+
+
+/* =====================================================
+   8. TEXTAREA
+   ===================================================== */
+
+textarea {
+    min-height:
+        120px;
+
+    resize:
+        vertical;
+}
+
+/*
+   The project description box can grow
+   vertically but not sideways.
+*/
+
+
+/* =====================================================
+   9. RADIO GROUPS
+   ===================================================== */
+
+form fieldset fieldset {
+    margin-top:
+        var(--space-medium);
+
+    padding:
+        var(--space-medium);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+}
+
+/*
+   These are the smaller fieldsets used for:
+
+   Expected Graduation
+   Internship Completed
+*/
+
+
+form fieldset fieldset input[type="radio"] {
+    width:
+        auto;
+
+    margin-right:
+        0.3rem;
+}
+
+
+form fieldset fieldset label {
+    display:
+        inline-block;
+
+    margin-right:
+        var(--space-medium);
+
+    color:
+        var(--text-soft);
+}
+
+/*
+   Keeps radio options neatly beside each other:
+
+   ○ Spring   ○ Summer   ○ Fall
+*/
+
+
+/* =====================================================
+   10. SKILL CHECKBOXES
+   ===================================================== */
+
+form > fieldset > input[type="checkbox"] {
+    width:
+        auto;
+
+    margin-top:
+        0.8rem;
+
+    margin-right:
+        0.4rem;
+}
+
+
+form > fieldset > input[type="checkbox"] + label {
+    display:
+        inline;
+}
+
+
+/*
+   Each skill checkbox stays next to its label.
+*/
+
+
+form > fieldset > input[type="checkbox"] + label::after {
+    content: "";
+
+    display:
+        block;
+}
+
+/*
+   Adds a line break after every skill.
+
+   This gives:
+
+   □ Programming
+   □ Embedded Systems
+   □ Electronics
+
+   instead of putting everything on one long line.
+*/
+
+
+/* =====================================================
+   11. MULTIPLE SOFTWARE SELECT
+   ===================================================== */
+
+select[multiple] {
+    min-height:
+        160px;
+}
+
+/*
+   Makes the Engineering Software box taller
+   so several choices are visible.
+*/
+
+
+/* =====================================================
+   12. COLOR PICKER
+   ===================================================== */
+
+input[type="color"] {
+    width:
+        70px;
+
+    height:
+        42px;
+
+    padding:
+        3px;
+
+    background:
+        transparent;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        8px;
+}
+
+/*
+   Keeps the color picker small instead
+   of making it full width.
+*/
+
+
+/* =====================================================
+   13. FORM PARAGRAPHS
+   ===================================================== */
+
+form p {
+    line-height:
+        1.5;
+
+    color:
+        var(--text-soft);
+}
+
+/*
+   Used for instructions such as:
+
+   "Select all areas..."
+   "Hold Ctrl..."
+*/
+
+
+/* =====================================================
+   14. CONFIRMATION BOX
+   ===================================================== */
+
+form > div {
+    padding:
+        var(--space-medium);
+
+    background:
+        var(--card-bg);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+}
+
+
+form > div input[type="checkbox"] {
+    width:
+        auto;
+
+    margin-right:
+        0.4rem;
+}
+
+/*
+   Styles the final confirmation area.
+*/
+
+
+/* =====================================================
+   15. BUTTONS
+   ===================================================== */
+
+button {
+    padding:
+        0.75rem
+        1.3rem;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    font-family:
+        var(--font-body);
+
+    font-size:
+        1rem;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* Submit button */
+
+button[type="submit"] {
+    background:
+        var(--blue);
+
+    color:
+        var(--bg-dark);
+}
+
+
+/* Reset button */
+
+button[type="reset"] {
+    background:
+        transparent;
+
+    color:
+        var(--text-main);
+
+    margin-left:
+        0.5rem;
+}
+
+
+/* Hover effect */
+
+button:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        var(--gold);
+}
+
+/*
+   The button moves slightly upward
+   when the mouse is over it.
+*/
+
+
+/* =====================================================
+   16. SMALL SCREENS
+   ===================================================== */
+
+@media (max-width: 599px) {
+
+    form > fieldset {
+        padding:
+            var(--space-medium);
+    }
+
+    button {
+        width:
+            100%;
+
+        margin:
+            0.3rem 0;
+    }
+}
+
+/*
+   On phones:
+
+   sections use less padding
+   and buttons become full width.
+*/
+
+
+/* =====================================================
+   17. REDUCED MOTION
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    button {
+        transition:
+            none;
+    }
+}
+
+/* Engineering Student Profile icon in navigation */
+.site-nav a[href="/submit-profile"]::before {
+    content: "⚙";
+    margin-right: 0.35rem;
+}

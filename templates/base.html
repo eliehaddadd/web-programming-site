@@ -13,6 +13,9 @@
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
+          
+          {% block head %}
+        {% endblock %}
 </head>
 
 <body>
@@ -94,6 +97,10 @@
                aria-current="page"
                {% endif %}>
                 Web History AI
+            </a>
+
+            <a href="{{ url_for('submit_profile') }}">
+                Engineering Student Profile
             </a>
 
         </nav>

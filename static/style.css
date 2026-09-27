@@ -4,6 +4,7 @@
    ===================================================== */
 
 :root {
+    /* creating variables that hold colors and can be reused anywhere */
     --bg-dark: #071426;          /* Darkest background color */
     --bg-main: #0d2740;          /* Main blue background */
 
@@ -16,17 +17,20 @@
     --text-soft: #d8e8ef;        /* Softer paragraph color */
     --text-muted: #9fb8c6;       /* Less important text */
 
-    --border: rgba(143, 231, 255, 0.25);
+    --border: rgba(143, 231, 255, 0.25);                /*143, 231, 255 = light blue
+                                                           0.25 = 25% opacity--> how transparent or visible it is
+                                                           rgba--> red green blue alpha*/
+
     /* Transparent blue border */
 
     --card-bg: rgba(143, 231, 255, 0.08);
     /* Transparent background for cards */
 
-    --font-body: "Segoe UI", Arial, sans-serif;
-    /* Main font. Browser tries Segoe UI first */
+    --font-body: "Segoe UI", Arial, sans-serif;      
+    /* Main font. Browser tries Segoe UI first, if no then arial if no then sans-serif */
 
     --font-heading: Georgia, "Times New Roman", serif;
-    /* Font used for headings */
+    /* Font used for headings. Try Georgia first, then Times New Roman, then serif */
 
     --space-small: 0.8rem;       /* Small spacing */
     --space-medium: 1.3rem;      /* Medium spacing */
@@ -46,12 +50,13 @@
 * {
     box-sizing: border-box;
     /* Width includes padding and border.
-       This makes sizes easier to calculate. */
+       This makes sizes easier to calculate.
+       to know the limit of the text , how much space it takes */
 }
 
 html {
     scroll-behavior: smooth;
-    /* Makes scrolling between page locations smooth */
+    /* Makes scrolling between page locations smooth not instant */
 }
 
 
@@ -62,31 +67,34 @@ html {
 
 body {
     margin: 0;
-    /* Removes browser's default outside margin */
+    /* Removes browser's default outside margin, start with no space around the page */
 
     min-height: 100vh;
-    /* Page is at least the full screen height */
+    /* Page is at least the full screen height 
+    If the page has very little content, it still fills the screen vertically*/
 
     overflow-x: hidden;
     /* Prevents horizontal scrolling */
 
     font-family: var(--font-body);
-    /* Uses the font stored in --font-body */
+    /* Uses the font stored in --font-body (police de caractère) */
 
     line-height: 1.7;
     /* Adds comfortable vertical spacing between lines */
 
     color: var(--text-main);
-    /* Default text color */
+    /* Default text color , because it contains 'text'*/
 
     background:
         radial-gradient(
-            circle at 15% 10%,
+            circle at 15% 10%,                    /*15% = 15% from the left
+                                                    10% = 10% from the top
+                                                    So the glow is positioned near the top-left corner of the page.*/
             rgba(103, 221, 213, 0.18),
             transparent 30%
         ),
         linear-gradient(
-            180deg,
+            180deg,                     /*180deg makes the background gradually change vertically downward.*/
             var(--bg-dark),
             var(--bg-main)
         );
@@ -124,7 +132,7 @@ a {
 
 a:hover {
     color: var(--gold);
-    /* :hover changes the link when mouse is over it */
+    /* :hover changes the link to gold when mouse is over it */
 }
 
 ul,
@@ -145,25 +153,29 @@ li {
 
 .background-effects {
     position: fixed;
-    /* Keeps it fixed to the screen */
+    /* Keeps it fixed to the screen even when scrolling */
 
     inset: 0;
-    /* Same as top:0; right:0; bottom:0; left:0 */
+    /* Same as top:0; right:0; bottom:0; left:0 : covers the entire screen */
 
     z-index: -1;
-    /* Places it behind the page content */
+    /* Places it behind the page content , so it doesn't interfere with the main content */
 
     pointer-events: none;
     /* User cannot click/interact with this element */
 
     background:
         radial-gradient(
-            circle at 80% 25%,
-            rgba(240, 199, 107, 0.10),
+            circle at 80% 25%,                 /* 80% = 80% from the left
+                                                25% = 25% from the top
+                                                So the glow is positioned near the top-right corner of the page.*/   
+            rgba(240, 199, 107, 0.10),     
             transparent 25%
         ),
         radial-gradient(
-            circle at 20% 75%,
+            circle at 20% 75%,                  /* 20% = 20% from the left
+                                                75% = 75% from the top
+                                                So the glow is positioned near the bottom-left corner of the page.*/
             rgba(143, 231, 255, 0.10),
             transparent 25%
         );
@@ -176,7 +188,8 @@ li {
    ===================================================== */
 
 .site-header {
-    padding:
+    padding:                                     /* HEADER BORDER
+                                                  | padding   [logo / title / nav]   padding   |*/
         var(--space-large)
         var(--space-medium);
     /*
@@ -186,21 +199,27 @@ li {
 
     background:
         rgba(7, 20, 38, 0.92);
-    /* Dark transparent header background */
+    /* Dark navy, slightly transparent header background */
 
     border-bottom:
         1px solid var(--border);
-    /* Adds a thin line under the header */
+    /* Adds a thin line under the header, above the main content
+    1px = thickness
+    solid = continuous line
+    var(--border) = the border color we defined earlier*/
 
     animation:
         fadeDown 0.6s ease;
-    /* Plays the fadeDown animation when page loads */
+    /* Plays the fadeDown animation when page loads
+    fadeDown = animation name
+    0.6s = lasts 0.6 seconds
+    ease = makes the movement start and finish smoothly */
 }
 
 
 /* =====================================================
    7. BRAND
-   Contains the logo and website title.
+   Contains the logo and website title. (part of the header)
    ===================================================== */
 
 .site-brand {
@@ -214,10 +233,11 @@ li {
        top = 0
        left/right = auto, which centers it
        bottom = large spacing
+       so it puts in the center of the page and adds space below it
     */
 
     display: flex;
-    /* Activates Flexbox */
+    /* Activates Flexbox , so the browser can organize the logo and the title more easily*/
 
     flex-direction: column;
     /* On phones, elements are placed vertically */
@@ -249,7 +269,7 @@ li {
 
     background:
         linear-gradient(
-            145deg,
+            145deg,         /* diagonal gradient at 145 degrees */
             var(--paper),
             var(--gold)
         );
@@ -287,6 +307,8 @@ li {
        Maximum = 2.5rem
 
        Makes font responsive.
+       So the title gets bigger on larger screens and smaller on smaller screens,
+       but it never goes below 1.7rem or above 2.5rem.
     */
 
     color: var(--paper);
@@ -294,6 +316,7 @@ li {
 }
 
 .site-title-group p {
+   /* the sentence : A live site that grows one page or feature every week.*/
     margin:
         0.3rem 0 0;
     /* Small space above subtitle */
@@ -313,7 +336,9 @@ li {
     /* Limits menu width */
 
     margin: 0 auto;
-    /* Centers navigation */
+    /* Centers navigation
+    top and bottom margin = 0
+    left and right margin = auto */
 
     display: flex;
     /* Activates Flexbox */
@@ -323,13 +348,13 @@ li {
        if there is not enough space */
 
     align-items: center;
-    /* Vertically centers Flexbox items */
+    /* Vertically centers Flexbox/menu items */
 
     justify-content: center;
-    /* Horizontally centers menu items */
+    /* Horizontally centers Flexbox/menu items */
 
     gap: 0.6rem;
-    /* Space between links */
+    /* Space between links vertically and horizontally*/
 }
 
 
@@ -341,9 +366,9 @@ li {
     flex:
         1 1 140px;
     /*
-       flex-grow: 1
-       flex-shrink: 1
-       flex-basis: 140px
+       grow: 1 → the links are allowed to become wider if there is extra space.
+       shrink: 1 → the links are allowed to become smaller if space is limited.
+       basis: 140px → each link starts with a preferred size of about 140px.
 
        Links can grow, shrink, and start at 140px.
     */
@@ -374,6 +399,8 @@ li {
 
 .site-nav a:hover,
 .site-nav a.active {
+    /*the mouse is over the link with :hover
+      the link has the normal class .active*/
     background:
         rgba(143, 231, 255, 0.10);
     /* Adds transparent blue background */
@@ -421,7 +448,7 @@ li {
     /* Makes content almost full width with side space */
 
     max-width: var(--max-width);
-    /* Stops content becoming wider than 1080px */
+    /* Stops content becoming wider than 1080px depends on the device*/
 
     margin:
         var(--space-xl)
@@ -437,7 +464,8 @@ li {
    14. HEADINGS
    ===================================================== */
 
-main > h1,
+main > h1, /* Main page title */
+main > h2, /* Section headings */
 h2 {
     font-family: var(--font-heading);
     /* Gives main headings the historical serif font */
@@ -461,7 +489,7 @@ h2 {
     /* Responsive section heading size */
 }
 
-h3 {
+h3 { /*smaller headings*/
     color: var(--gold);
     /* Smaller headings use gold */
 }
@@ -471,24 +499,29 @@ h3 {
    15. HISTORY SECTIONS
    ===================================================== */
 
-section:not(.weekly-work) {
+   /*
+    Introduction
+    Key Milestones
+    Three Key Technologies*/
+
+section:not(.weekly-work) {         /*select every <section> except the one with class .weekly-work.*/
     position: relative;
     /*
        Allows ::before to be positioned relative
-       to this section.
+       to this section so we could use for decoration later.
     */
 
     margin-bottom:
         var(--space-xl);
-    /* Space between sections */
+    /* Space between sections (below it)*/
 
     padding-left:
         var(--space-large);
-    /* Space between timeline and text */
+    /* Space between timeline and text(inside on the left) */
 
     border-left:
         2px solid var(--border);
-    /* Creates vertical timeline line */
+    /* Creates vertical timeline line (vertical line on the left) */
 }
 
 
@@ -496,18 +529,19 @@ section:not(.weekly-work) {
    16. TIMELINE DOT
    ===================================================== */
 
-section:not(.weekly-work)::before {
+section:not(.weekly-work)::before {     /*for every section except .weekly-work,
+                                          create something before its real content.*/
     content: "";
     /* Creates an empty pseudo-element */
 
     position: absolute;
-    /* Allows precise positioning */
+    /* Allows precise positioning of the dot */
 
     top: 5px;
-    /* Places dot near top of section */
+    /* Places dot near top of section (moves the dot 5 pixels down from the top of the section) */
 
     left: -7px;
-    /* Places dot on timeline line */
+    /* Places dot on timeline line (moves it 7 pixels to the left, so it sits on top of the vertical timeline line) */
 
     width: 12px;
     height: 12px;
@@ -522,18 +556,22 @@ section:not(.weekly-work)::before {
 
 
 /* =====================================================
-   17. ARTICLE CARDS
+   17. ARTICLE CARDS (style them like cards)
    ===================================================== */
 
 article {
     margin:
         var(--space-medium)
         0;
-    /* Space above and below article */
+    /* Space above and below article 
+     top and bottom = space-medium
+     left and right = 0
+
+     So articles are separated vertically.*/
 
     padding:
         var(--space-medium);
-    /* Space inside article */
+    /* Space inside article (between content and edges) */
 
     background:
         var(--card-bg);
@@ -571,13 +609,19 @@ article:hover {
    We remove the normal card appearance here.
    ===================================================== */
 
-main > section:nth-of-type(3) article {
+main > section:nth-of-type(3) article {       /*main = the main content area
+                                                   > = direct child
+                                             section = a section inside main
+                                     :nth-of-type(3) = selects the third section
+                                             article = selects the articles inside that third section
+
+                                      So this is basically targeting your Three Key Technologies section.*/
     margin-bottom:
         var(--space-large);
     /* Adds space between technologies */
 
     padding: 0;
-    /* Removes card padding */
+    /* Removes card padding (removes the inner spacing that normal cards had) */
 
     background: transparent;
     /* Removes card background */
@@ -589,15 +633,15 @@ main > section:nth-of-type(3) article {
     /* Removes rounded corners */
 
     transform: none;
-    /* Removes movement */
+    /* Removes movement effect */
 }
 
 main > section:nth-of-type(3) article:hover {
     transform: none;
-    /* Prevents movement on hover */
+    /* Prevents movement on hover (do not move upward like the normal article cards) */
 
     border: none;
-    /* Makes sure no border appears */
+    /* Makes sure no border appears (makes sure no border appears when hovering)*/
 }
 
 
@@ -610,7 +654,7 @@ time {
     /* Makes year gold */
 
     font-weight: bold;
-    /* Makes year stand out */
+    /* Makes year stand out (thicker/bolder) */
 }
 
 
@@ -620,10 +664,10 @@ time {
 
 .weekly-work {
     border: 0;
-    /* Removes history timeline border */
+    /* Removes history timeline border (no borders) */
 
     padding: 0;
-    /* Removes history timeline padding */
+    /* Removes history timeline padding (no extra internal space)*/
 }
 
 .weekly-work::before {
@@ -636,13 +680,13 @@ time {
    21. WEEK GROUP
    ===================================================== */
 
-.week-group {
+.week-group {         /* controls the space between each week group (Week 1, Week 2, etc.)*/
     margin-bottom:
         var(--space-xl);
     /* Space between Week 1, Week 2, etc. */
 }
 
-.week-title {
+.week-title {          /* controls the space below each week title (Week 1, Week 2, etc.)*/
     margin-bottom:
         var(--space-medium);
     /* Space below week title */
@@ -657,12 +701,13 @@ time {
    Uses CSS GRID.
    ===================================================== */
 
+   /* modifies the weekly-list to use CSS Grid layout instead of Flexbox, allowing for a more flexible and responsive arrangement of the work cards. */
 .weekly-list {
     margin: 0;
     /* Removes default margin */
 
     padding: 0;
-    /* Removes default list padding */
+    /* Removes default list padding (inner spacing) */
 
     list-style: none;
     /* Removes bullet points */
@@ -687,12 +732,14 @@ time {
    23. WORK CARD
    ===================================================== */
 
+   /*modifies each work card individually, allowing for more precise control over their appearance and behavior. */
+
 .work-card {
     margin: 0;
     /* Removes default list-item margin */
 }
 
-.work-card > a {
+.work-card > a {                     /*select the direct <a> link inside each .work-card*/
     position: relative;
     /* Needed because icon is absolutely positioned */
 
@@ -700,10 +747,10 @@ time {
     /* Minimum card height */
 
     padding:
-        var(--space-medium)
-        var(--space-medium)
-        var(--space-medium)
-        3.7rem;
+        var(--space-medium)   /*top*/
+        var(--space-medium)   /*right*/
+        var(--space-medium)   /*bottom*/
+        3.7rem;               /*left*/
     /*
        More padding on left to make room
        for the icon.
@@ -757,7 +804,7 @@ time {
    24. CARD ICON
    ===================================================== */
 
-.work-card > a::before {
+.work-card > a::before {                      /*creates the small icon area before the card text*/
     position: absolute;
     /* Positions icon independently */
 
@@ -805,7 +852,7 @@ time {
    25. CARD ARROW
    ===================================================== */
 
-.work-card > a::after {
+.work-card > a::after {                  /*inside the card, after the link text, add something*/
     content: "→";
     /* Adds arrow after card content */
 
@@ -849,7 +896,7 @@ time {
 dt {
     margin-top:
         var(--space-medium);
-    /* Space before each definition term */
+    /* Space above each definition term */
 
     color: var(--gold);
     /* Technical term color */
@@ -915,13 +962,15 @@ dd {
    at least 600px wide.
    ===================================================== */
 
-@media (min-width: 600px) {
+@media (min-width: 600px) {            /*use these rules only when the screen is 600px wide or more*/
 
     .site-brand {
         flex-direction: row;
         /*
            Logo and title move from vertical
            to horizontal.
+           on small screens, the logo and title were one above the other
+           at 600px or more, they become side by side
         */
 
         align-items: center;
@@ -952,7 +1001,8 @@ dd {
 
            minmax(240px, 1fr) means:
            each card must be at least 240px wide,
-           but can grow to fill available space.
+           but can grow to fill available space
+           so we can get multiple columns of cards on larger screens, but only one column on smaller screens.
         */
     }
 }
@@ -965,7 +1015,7 @@ dd {
    900px wide.
    ===================================================== */
 
-@media (min-width: 900px) {
+@media (min-width: 900px) {                    /*only use these rules when the screen is 900px or wider*/
 
     .site-header {
         padding:
@@ -1014,7 +1064,7 @@ dd {
    @keyframes describes the steps of an animation.
    ===================================================== */
 
-@keyframes fadeDown {
+@keyframes fadeDown {           /*this creates an animation called fadeDown*/
 
     from {
         opacity: 0;
@@ -1040,7 +1090,7 @@ dd {
    32. BACKGROUND ANIMATION
    ===================================================== */
 
-@keyframes backgroundMove {
+@keyframes backgroundMove {          /*this creates an animation called backgroundMove*/
 
     from {
         background-position:
@@ -1065,15 +1115,29 @@ dd {
    This rule respects that setting.
    ===================================================== */
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {           /*This checks whether the user has told their device:
+                                                    reduce animations and movement.*/
 
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
+    *,     /* all elements (body,h1,a,section,article,div)*/
+    *::before, /* like the gold dot */
+    *::after { /* like the arrow */
+
+        animation: none !important;      /* this CSS rule should have very high priority.
+                                           It turns off all animations for users who prefer reduced motion.*/
         /* Turns animations off */
 
         transition: none !important;
         /* Turns transition effects off */
     }
+}
+
+/* Engineering Student Profile icon in navigation */
+.site-nav a[href="/submit-profile"]::before {
+    content: "⚙";
+    margin-right: 0.35rem;
+}
+
+/* Engineering icon for the Week 4 profile card */
+.work-card a[href="/submit-profile"]::before {
+    content: "⚙";
 }
