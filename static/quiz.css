@@ -1,0 +1,690 @@
+/* =====================================================
+   JAVASCRIPT QUIZ
+   =====================================================
+
+   This stylesheet is used only for the JavaScript quiz.
+
+   The design follows the same style as the rest of
+   the website:
+
+   - dark blue background
+   - cyan accents
+   - gold highlights
+   - rounded cards
+   - clear spacing
+   - responsive layout
+
+   ===================================================== */
+
+
+/* =====================================================
+   1. QUIZ PAGE CONTAINER
+   ===================================================== */
+
+.container {
+    max-width: 900px;
+
+    margin:
+        0 auto;
+
+    padding:
+        2rem 1.5rem;
+}
+
+/*
+   max-width:
+   Prevents the quiz from becoming too wide.
+
+   margin: 0 auto:
+   Centers the quiz horizontally.
+
+   padding:
+   Adds space around the content.
+*/
+
+
+/* =====================================================
+   2. MAIN QUIZ TITLE
+   ===================================================== */
+
+.container > h1 {
+    text-align:
+        center;
+
+    color:
+        var(--gold, #f6c85f);
+
+    margin-bottom:
+        2rem;
+}
+
+/*
+   The main "JavaScript Quiz" title is centered.
+
+   var(--gold) uses the gold color from the
+   main website stylesheet.
+
+   The second value is a fallback color in case
+   the variable is not available.
+*/
+
+
+/* =====================================================
+   3. QUIZ PANEL
+   ===================================================== */
+
+#quizPanel {
+    padding:
+        2rem;
+
+    background:
+        var(--card-bg, rgba(18, 48, 72, 0.85));
+
+    border:
+        1px solid var(--border, rgba(105, 220, 245, 0.35));
+
+    border-radius:
+        16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.20);
+}
+
+/*
+   quizPanel contains:
+
+   - question number
+   - question
+   - answers
+   - navigation buttons
+   - submit button
+
+   It is styled like a card to separate the quiz
+   from the page background.
+*/
+
+
+/* =====================================================
+   4. QUESTION PROGRESS
+   ===================================================== */
+
+#progress {
+    color:
+        var(--gold, #f6c85f);
+
+    font-weight:
+        bold;
+
+    margin-bottom:
+        0.8rem;
+}
+
+/*
+   Example:
+
+   Question 3 of 10
+
+   Gold makes the question number easy to notice.
+*/
+
+
+/* =====================================================
+   5. QUESTION TEXT
+   ===================================================== */
+
+#questionText {
+    color:
+        var(--text-main, #f1f7fa);
+
+    margin-bottom:
+        1.5rem;
+
+    line-height:
+        1.4;
+}
+
+/*
+   line-height creates more space between lines
+   if the question is long.
+*/
+
+
+/* =====================================================
+   6. ANSWER CHOICES CONTAINER
+   ===================================================== */
+
+#choices {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        0.75rem;
+
+    margin-bottom:
+        2rem;
+}
+
+/*
+   display:flex:
+   Activates Flexbox.
+
+   flex-direction:column:
+   Places the answers below each other.
+
+   gap:
+   Adds space between each answer.
+*/
+
+
+/* =====================================================
+   7. INDIVIDUAL ANSWER CHOICE
+   ===================================================== */
+
+.choice {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        0.7rem;
+
+    padding:
+        0.9rem 1rem;
+
+    color:
+        var(--text-main, #f1f7fa);
+
+    background:
+        rgba(7, 20, 38, 0.55);
+
+    border:
+        1px solid var(--border, rgba(105, 220, 245, 0.30));
+
+    border-radius:
+        10px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+/*
+   Each answer becomes its own small card.
+
+   display:flex:
+   Keeps the radio button and answer text together.
+
+   align-items:center:
+   Vertically aligns the radio button and text.
+
+   cursor:pointer:
+   Shows that the answer can be clicked.
+*/
+
+
+/* =====================================================
+   8. ANSWER HOVER
+   ===================================================== */
+
+.choice:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        var(--blue, #69dcf5);
+
+    background:
+        rgba(105, 220, 245, 0.08);
+}
+
+/*
+   When the mouse is over an answer:
+
+   - it moves slightly upward
+   - the border becomes cyan
+   - the background gets a light cyan effect
+*/
+
+
+/* =====================================================
+   9. RADIO BUTTONS
+   ===================================================== */
+
+.choice input[type="radio"] {
+    width:
+        auto;
+
+    margin:
+        0;
+
+    accent-color:
+        var(--blue, #69dcf5);
+
+    cursor:
+        pointer;
+}
+
+/*
+   accent-color changes the selected radio button
+   to the website's cyan color.
+
+   width:auto prevents the radio button from
+   becoming full width.
+*/
+
+
+/* =====================================================
+   10. NAVIGATION BUTTON AREA
+   ===================================================== */
+
+.navigation {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.7rem;
+
+    margin-top:
+        1rem;
+
+    margin-bottom:
+        1.5rem;
+}
+
+/*
+   flex-wrap allows the buttons to move to another
+   line on smaller screens instead of overflowing.
+*/
+
+
+/* =====================================================
+   11. ALL QUIZ BUTTONS
+   ===================================================== */
+
+#quizPanel button {
+    padding:
+        0.7rem 1.1rem;
+
+    font-family:
+        inherit;
+
+    font-size:
+        0.95rem;
+
+    font-weight:
+        bold;
+
+    color:
+        var(--text-main, #f1f7fa);
+
+    background:
+        rgba(18, 48, 72, 0.95);
+
+    border:
+        1px solid var(--border, rgba(105, 220, 245, 0.35));
+
+    border-radius:
+        9px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+/*
+   This gives all quiz buttons the same
+   basic appearance.
+*/
+
+
+/* =====================================================
+   12. BUTTON HOVER
+   ===================================================== */
+
+#quizPanel button:hover:not(:disabled) {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        var(--gold, #f6c85f);
+
+    background:
+        rgba(105, 220, 245, 0.12);
+}
+
+/*
+   :hover:
+   activates when the mouse is over the button.
+
+   :not(:disabled):
+   prevents this effect from being applied to
+   disabled navigation buttons.
+*/
+
+
+/* =====================================================
+   13. DISABLED BUTTONS
+   ===================================================== */
+
+#quizPanel button:disabled {
+    opacity:
+        0.4;
+
+    cursor:
+        not-allowed;
+}
+
+/*
+   First and Previous are disabled on Question 1.
+
+   Next and Last are disabled on Question 10.
+
+   Lower opacity visually shows that the button
+   cannot currently be used.
+*/
+
+
+/* =====================================================
+   14. SUBMIT QUIZ BUTTON
+   ===================================================== */
+
+#quizPanel .submit {
+    background:
+        var(--blue, #69dcf5);
+
+    color:
+        var(--bg-dark, #071426);
+
+    border-color:
+        var(--blue, #69dcf5);
+
+    padding:
+        0.8rem 1.4rem;
+}
+
+/*
+   The Submit Quiz button is more noticeable
+   than the normal navigation buttons.
+
+   Cyan background + dark text makes it stand out.
+*/
+
+
+/* =====================================================
+   15. SUBMIT BUTTON HOVER
+   ===================================================== */
+
+#quizPanel .submit:hover {
+    border-color:
+        var(--gold, #f6c85f);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =====================================================
+   16. RESULTS PANEL
+   ===================================================== */
+
+#resultsPanel {
+    display:
+        none;
+
+    padding:
+        2rem;
+
+    color:
+        var(--text-main, #f1f7fa);
+
+    background:
+        var(--card-bg, rgba(18, 48, 72, 0.90));
+
+    border:
+        1px solid var(--border, rgba(105, 220, 245, 0.35));
+
+    border-radius:
+        16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.20);
+}
+
+/*
+   display:none:
+   Hides the results when the quiz first opens.
+
+   JavaScript later changes this to display:block
+   when Submit Quiz is clicked.
+
+   IMPORTANT:
+   The text color is explicitly set here so the
+   results remain readable on the dark background.
+*/
+
+
+/* =====================================================
+   17. RESULTS TITLE
+   ===================================================== */
+
+#resultsPanel h2 {
+    color:
+        var(--gold, #f6c85f);
+
+    margin-bottom:
+        1.5rem;
+}
+
+
+/* =====================================================
+   18. SCORE, PERCENTAGE AND PERFORMANCE
+   ===================================================== */
+
+#scoreText,
+#percentageText,
+#performanceText {
+    padding:
+        0.7rem 1rem;
+
+    margin:
+        0.6rem 0;
+
+    color:
+        var(--text-main, #f1f7fa);
+
+    background:
+        rgba(7, 20, 38, 0.50);
+
+    border-left:
+        4px solid var(--blue, #69dcf5);
+
+    border-radius:
+        6px;
+}
+
+/*
+   These three result values are visually separated:
+
+   Score
+   Percentage
+   Performance message
+*/
+
+
+/* =====================================================
+   19. PERFORMANCE MESSAGE
+   ===================================================== */
+
+#performanceText {
+    color:
+        var(--gold, #f6c85f);
+
+    font-weight:
+        bold;
+}
+
+/*
+   Excellent / Good / Pass / Needs improvement
+   receives extra emphasis.
+*/
+
+
+/* =====================================================
+   20. CORRECTION TITLE
+   ===================================================== */
+
+#resultsPanel h3 {
+    margin-top:
+        2rem;
+
+    color:
+        var(--blue, #69dcf5);
+}
+
+
+/* =====================================================
+   21. COMPLETE CORRECTION
+   ===================================================== */
+
+#correction {
+    width:
+        100%;
+
+    margin-top:
+        1rem;
+
+    padding:
+        1.5rem;
+
+    box-sizing:
+        border-box;
+
+    white-space:
+        pre-wrap;
+
+    overflow-wrap:
+        break-word;
+
+    color:
+        var(--text-main, #f1f7fa);
+
+    background:
+        rgba(7, 20, 38, 0.60);
+
+    border:
+        1px solid var(--border, rgba(105, 220, 245, 0.30));
+
+    border-radius:
+        10px;
+
+    font-family:
+        inherit;
+
+    font-size:
+        0.95rem;
+
+    line-height:
+        1.7;
+}
+
+/*
+   The correction is inside a <pre> element.
+
+   white-space:pre-wrap:
+   Keeps the line breaks generated by JavaScript,
+   while still allowing long lines to wrap.
+
+   overflow-wrap:break-word:
+   Prevents long text from leaving the card.
+
+   color:
+   Explicitly makes the correction text readable.
+
+   This also fixes the previous problem where
+   very light text appeared on a white background.
+*/
+
+
+/* =====================================================
+   22. TABLET AND PHONE RESPONSIVENESS
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding:
+            1rem;
+    }
+
+
+    #quizPanel,
+    #resultsPanel {
+        padding:
+            1.2rem;
+    }
+
+
+    .navigation {
+        flex-direction:
+            column;
+    }
+
+
+    .navigation button,
+    #quizPanel .submit {
+        width:
+            100%;
+    }
+
+
+    #questionText {
+        font-size:
+            1.2rem;
+    }
+}
+
+/*
+   On smaller screens:
+
+   - less padding is used
+   - navigation buttons are placed vertically
+   - buttons become full width
+   - the question remains easy to read
+*/
+
+
+/* =====================================================
+   23. REDUCED MOTION
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .choice,
+    #quizPanel button {
+        transition:
+            none;
+    }
+}
+
+/*
+   Some users prefer reduced animations.
+
+   If that setting is enabled on their device,
+   the hover transitions are removed.
+*/

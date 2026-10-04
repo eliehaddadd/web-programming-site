@@ -75,7 +75,7 @@ form > fieldset {
 
 legend {
     padding:
-        0 0.5rem;
+        0 0.5rem;  /* adds a little space on the left and right of the title */
 
     color:
         var(--gold);
@@ -100,18 +100,18 @@ legend {
    ===================================================== */
 
 form > fieldset > label {
-    display: block;
+    display: block;    /* makes the label take its own line */
 
-    margin-top:
+    margin-top:   /* adds space above the label */
         var(--space-medium);
 
-    margin-bottom:
+    margin-bottom:    /* adds space below the label */
         0.4rem;
 
     color:
         var(--text-main);
 
-    font-weight:
+    font-weight:   /* makes the label text a little bolder than normal text */
         600;
 }
 
@@ -140,12 +140,12 @@ input[type="month"],
 input[type="time"],
 input[type="number"],
 select,
-textarea {
+textarea {  /* all normal input types, plus select and textarea */
 
     width: 100%;
 
     padding:
-        0.7rem 0.8rem;
+        0.7rem 0.8rem; /* adds space inside the input */
 
     font-family:
         var(--font-body);
@@ -209,7 +209,7 @@ textarea:focus {
     color:
         var(--text-muted);
 
-    opacity:
+    opacity:  /* makes the placeholder text a little lighter than normal text */
         0.8;
 }
 
@@ -228,7 +228,7 @@ textarea {
     min-height:
         120px;
 
-    resize:
+    resize:  /* allows the user to resize the box vertically but not sideways */
         vertical;
 }
 
@@ -242,7 +242,7 @@ textarea {
    9. RADIO GROUPS
    ===================================================== */
 
-form fieldset fieldset {
+form fieldset fieldset { /* the smaller fieldsets inside the main fieldsets */
     margin-top:
         var(--space-medium);
 
@@ -264,7 +264,7 @@ form fieldset fieldset {
 */
 
 
-form fieldset fieldset input[type="radio"] {
+form fieldset fieldset input[type="radio"] {   /* the radio buttons inside the smaller fieldsets */
     width:
         auto;
 
@@ -273,9 +273,9 @@ form fieldset fieldset input[type="radio"] {
 }
 
 
-form fieldset fieldset label {
+form fieldset fieldset label {   /* the labels for the radio buttons inside the smaller fieldsets */
     display:
-        inline-block;
+        inline-block;  /* keeps the label on the same line as the radio button (spring summer fall */
 
     margin-right:
         var(--space-medium);
@@ -388,7 +388,7 @@ input[type="color"] {
    ===================================================== */
 
 form p {
-    line-height:
+    line-height:  /* makes the text easier to read */
         1.5;
 
     color:
@@ -459,10 +459,10 @@ button {
     font-weight:
         bold;
 
-    cursor:
+    cursor:    /* makes the mouse pointer change to a hand when over the button */
         pointer;
 
-    transition:
+    transition:  /* makes the button move smoothly when hovered over */
         transform 0.2s ease,
         border-color 0.2s ease;
 }
@@ -513,7 +513,7 @@ button:hover {
    16. SMALL SCREENS
    ===================================================== */
 
-@media (max-width: 599px) {
+@media (max-width: 599px) {  /* phones */
 
     form > fieldset {
         padding:
@@ -544,13 +544,7 @@ button:hover {
 @media (prefers-reduced-motion: reduce) {
 
     button {
-        transition:
+        transition:  /* disables the hover effect for users who prefer reduced motion */
             none;
     }
-}
-
-/* Engineering Student Profile icon in navigation */
-.site-nav a[href="/submit-profile"]::before {
-    content: "⚙";
-    margin-right: 0.35rem;
 }

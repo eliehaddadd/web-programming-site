@@ -868,24 +868,51 @@ time {
    26. DIFFERENT CARD ICONS
    ===================================================== */
 
+
+/* Week 1 - Live Site */
 .work-card.launch > a::before {
     content: "↗";
+
     /* Launch icon */
 }
 
+
+/* Week 2 - Internet pages */
 .work-card.internet > a::before,
 .work-card.internet-ai > a::before {
     content: "🌐";
-    /* Internet icon */
+
+    /* Internet globe icon */
 }
 
+
+/* Week 2 - Web pages */
 .work-card.web > a::before,
 .work-card.web-ai > a::before {
     content: "WWW";
+
     /* Web icon */
 
-    font-size: 0.65rem;
-    /* Makes WWW fit inside icon box */
+    font-size:
+        0.65rem;
+
+    /* Makes WWW fit inside the icon box */
+}
+
+
+/* Week 4 - Engineering Student Profile */
+.work-card.profile > a::before {
+    content: "⚙";
+
+    /* Engineering gear icon */
+}
+
+
+/* Week 5 - JavaScript Quiz */
+.work-card.quiz > a::before {
+    content: "?";
+
+    /* Question mark represents the quiz */
 }
 
 
