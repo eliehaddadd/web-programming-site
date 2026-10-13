@@ -439,7 +439,7 @@ li {
 
 
 /* =====================================================
-   13. MAIN CONTAINER
+   13. MAIN CONTAINER 
    ===================================================== */
 
 .container {
@@ -662,7 +662,7 @@ time {
    20. WEEKLY WORK SECTION
    ===================================================== */
 
-.weekly-work {
+.weekly-work { 
     border: 0;
     /* Removes history timeline border (no borders) */
 
@@ -854,7 +854,7 @@ time {
 
 .work-card > a::after {                  /*inside the card, after the link text, add something*/
     content: "→";
-    /* Adds arrow after card content */
+    /* Adds arro`w after card content */
 
     color: var(--gold);
     /* Gold arrow */
@@ -934,9 +934,9 @@ dt {
 
 dd {
     margin:
-        0.4rem 0
-        var(--space-medium)
-        var(--space-medium);
+        0.4rem 0  /* Space above and below each definition description */
+        var(--space-medium) /* Space to the left of each definition description */
+        var(--space-medium); /* Space to the right of each definition description */
     /* Controls spacing around explanation */
 }
 
@@ -1167,4 +1167,8 @@ dd {
 /* Engineering icon for the Week 4 profile card */
 .work-card a[href="/submit-profile"]::before {
     content: "⚙";
+}
+
+.site-nav a:nth-child(7)::before {
+    content: "? ";
 }

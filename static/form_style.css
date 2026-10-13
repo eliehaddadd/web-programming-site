@@ -142,7 +142,7 @@ input[type="number"],
 select,
 textarea {  /* all normal input types, plus select and textarea */
 
-    width: 100%;
+    width: 100%; /* makes the input use the available width */
 
     padding:
         0.7rem 0.8rem; /* adds space inside the input */
@@ -163,12 +163,11 @@ textarea {  /* all normal input types, plus select and textarea */
         1px solid var(--border);
 
     border-radius:
-        10px;
+        10px;  
 
     box-sizing:
-        border-box;
+        border-box; 
 }
-
 /*
    width:100%
    Makes the input use the available width.
@@ -191,7 +190,7 @@ textarea:focus {
     outline:
         2px solid var(--blue);
 
-    outline-offset:
+    outline-offset: /* adds a little space between the outline and the input */
         2px;
 }
 
@@ -266,10 +265,10 @@ form fieldset fieldset { /* the smaller fieldsets inside the main fieldsets */
 
 form fieldset fieldset input[type="radio"] {   /* the radio buttons inside the smaller fieldsets */
     width:
-        auto;
+        auto;  /* keeps the radio button small instead of making it full width */
 
     margin-right:
-        0.3rem;
+        0.3rem; /* adds a little space between the radio button and its label */
 }
 
 
@@ -297,7 +296,7 @@ form fieldset fieldset label {   /* the labels for the radio buttons inside the 
 
 form > fieldset > input[type="checkbox"] {
     width:
-        auto;
+        auto; /* keeps the checkbox small instead of making it full width */
 
     margin-top:
         0.8rem;
@@ -409,7 +408,7 @@ form p {
 
 form > div {
     padding:
-        var(--space-medium);
+        var(--space-medium); /* adds space inside the box */
 
     background:
         var(--card-bg);
@@ -441,9 +440,8 @@ form > div input[type="checkbox"] {
 
 button {
     padding:
-        0.75rem
-        1.3rem;
-
+        0.75rem 
+        1.3rem;  
     border:
         1px solid var(--border);
 
@@ -517,15 +515,15 @@ button:hover {
 
     form > fieldset {
         padding:
-            var(--space-medium);
+            var(--space-medium); /* less padding on small screens */
     }
 
     button {
         width:
-            100%;
+            100%; /* makes the buttons full width on small screens */
 
         margin:
-            0.3rem 0;
+            0.3rem 0; /* adds a little space above and below the buttons */
     }
 }
 
@@ -546,5 +544,240 @@ button:hover {
     button {
         transition:  /* disables the hover effect for users who prefer reduced motion */
             none;
+    }
+}
+
+/* =====================================================
+   WEEK 6 - FORM REVIEW PANEL
+   ===================================================== */
+
+
+/* =====================================================
+   18. HIDE FORM DURING REVIEW
+   ===================================================== */
+
+/*
+   JavaScript adds this class after the form
+   has passed validation.
+
+   The form is hidden, but it is NOT deleted.
+   Therefore all entered values remain saved.
+*/
+
+.form-hidden {
+    display: none;
+}
+
+
+/* =====================================================
+   19. REVIEW PANEL
+   ===================================================== */
+
+/*
+   Hidden when the page first loads.
+*/
+
+.review-panel {
+    display: none;
+
+    max-width:
+        var(--max-width);
+
+    margin:
+        var(--space-large) auto;
+
+    padding:
+        2rem;
+
+    color:
+        var(--text-main);
+
+    background:
+        var(--card-bg);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    box-shadow: 
+        0 8px 25px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+/*
+   JavaScript adds the class "open"
+   when the form is valid.
+*/
+
+.review-panel.open {
+    display: block;
+}
+
+
+/* =====================================================
+   20. REVIEW TITLE
+   ===================================================== */
+
+.review-panel h2 {
+    margin-bottom:
+        var(--space-medium);
+
+    color:
+        var(--gold);
+}
+
+
+.review-intro {
+    margin-bottom:
+        var(--space-large);
+
+    color:
+        var(--text-soft);
+}
+
+
+/* =====================================================
+   21. REVIEW INFORMATION LIST
+   ===================================================== */
+
+.review-list {
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+
+    gap:
+        0.8rem;
+}
+
+
+/*
+   Each row contains:
+
+   field name
+   field value
+*/
+
+.review-row {
+    padding:
+        0.9rem 1rem;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(180px, 0.8fr) 
+        2fr;
+
+    gap:
+        var(--space-medium);
+
+    background:
+        rgba(7, 20, 38, 0.60);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+}
+
+
+/* Field name */
+
+.review-row dt {
+    margin: 0;
+
+    color:
+        var(--gold);
+
+    font-weight:
+        bold;
+}
+
+
+/* Field value */
+
+.review-row dd {
+    margin: 0;
+
+    color:
+        var(--text-main);
+
+    overflow-wrap: /* allows long words to break and wrap to the next line */
+        anywhere;
+
+    white-space:  /* allows long text to wrap to the next line instead of overflowing */
+        pre-wrap;
+}
+
+
+/* =====================================================
+   22. REVIEW BUTTONS
+   ===================================================== */
+
+.review-actions {
+    margin-top:
+        var(--space-large);
+
+    display: flex;
+
+    flex-wrap: wrap;  // allows the buttons to wrap to the next line if they don't fit
+
+    gap:
+        0.8rem;
+}
+
+
+/*
+   Give the Confirm button a stronger accent.
+*/
+
+#confirmBtn {
+    background:
+        var(--teal);
+
+    color:
+        var(--bg-dark);
+
+    font-weight:
+        bold;
+}
+
+
+/* =====================================================
+   23. SMALL SCREENS
+   ===================================================== */
+
+@media (max-width: 599px) {
+
+    .review-panel {
+        padding:
+            var(--space-medium);
+    }
+
+
+    /*
+       On small screens put the field name
+       above the field value.
+    */
+
+    .review-row {
+        grid-template-columns:
+            1fr; /* one column instead of two */
+    }
+
+
+    .review-actions {
+        flex-direction:
+            column; /* stack the buttons vertically instead of horizontally */
+    }
+
+
+    .review-actions button {
+        width:
+            100%;  /* make the buttons fill the available width */
     }
 }

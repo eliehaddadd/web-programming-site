@@ -103,6 +103,13 @@
                 Engineering Student Profile
             </a>
 
+            <a href="{{ url_for('quiz') }}"
+               class="{% if request.endpoint == 'quiz' %}active{% endif %}"
+              {% if request.endpoint == 'quiz' %}
+               aria-current="page"
+               {% endif %}>
+             Quiz
+            </a>
         </nav>
 
     </header>

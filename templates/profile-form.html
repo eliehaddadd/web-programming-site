@@ -1,95 +1,36 @@
 {% extends "base.html" %}
 
-
 {% block title %}
-
 Engineering Student Profile
 
 {% endblock %}
 
-
-
-<!-- =====================================================
-     EXTRA CSS FOR THIS PAGE
-
-     This block loads form_style.css only on this page.
-
-     The normal style.css is already loaded in base.html.
-
-     form_style.css is used only to improve the appearance
-     and layout of the Engineering Student Profile form.
-     ===================================================== -->
-
 {% block head %}
-
 <link rel="stylesheet"
       href="{{ url_for('static', filename='form_style.css') }}">
 
 {% endblock %}
 
-
-
 {% block content %}
-
-
-<!-- =====================================================
-     PAGE TITLE
-     ===================================================== -->
-
 <h2>Engineering Student Profile</h2>
-
-
 <p>
     Complete this form to provide information about your
     academic background, technical skills, internship
     experience, and Final Year Project preferences.
 </p>
 
-
-
-<!-- =====================================================
-     FORM
-
-     action:
-     Sends the form to the Flask function submit_profile.
-
-     method="post":
-     Sends the entered information to the server.
-     ===================================================== -->
-
-<form action="{{ url_for('submit_profile') }}"
-      method="post">
-
-
-
-    <!-- =================================================
-         HIDDEN FIELD
-
-         The user does not see this field.
-
-         It tells Flask which version of the form was used.
-         ================================================= -->
+<form id="profile-form"
+      action="{{ url_for('submit_profile') }}"
+      method="post"
+      novalidate>
 
     <input type="hidden"
            name="form_version"
            value="2026-2027">
 
-
-
-    <!-- =================================================
-         1. PERSONAL INFORMATION
-         ================================================= -->
-
     <fieldset>
-
         <legend>1. Personal Information</legend>
-
-
-
-        <!-- =================================================
-             STUDENT ID
-             ================================================= -->
-
+        
         <label for="student_id">
             Student ID:
         </label>
@@ -102,35 +43,6 @@ Engineering Student Profile
                maxlength="9"
                required>
 
-        <!--
-            pattern="[0-9]{9}"
-
-            [0-9]
-            means that only numbers from 0 to 9 are allowed.
-
-            {9}
-            means that exactly 9 numbers are required.
-
-            Example accepted:
-            202312345
-
-            Example rejected:
-            20231234
-
-            maxlength="9"
-            prevents the user from entering more than
-            9 characters.
-
-            required
-            means the field cannot be empty.
-        -->
-
-
-
-        <!-- =================================================
-             FULL NAME
-             ================================================= -->
-
         <label for="fullname">
             Full Name:
         </label>
@@ -141,21 +53,6 @@ Engineering Student Profile
                placeholder="First name and last name"
                required>
 
-        <!--
-            type="text"
-            allows normal text to be entered.
-
-            required
-            means that the user must enter a name
-            before submitting the form.
-        -->
-
-
-
-        <!-- =================================================
-             USEK EMAIL
-             ================================================= -->
-
         <label for="email">
          USEK Email:
         </label>
@@ -164,47 +61,8 @@ Engineering Student Profile
        id="email"
        name="email"
        placeholder="name@net.usek.edu.lb"
-       pattern="[A-Za-z0-9._%+\-]+@net[.]usek[.]edu[.]lb"
+       pattern="[A-Za-z0-9._%+-]+@net[.]usek[.]edu[.]lb"
        required>
-
-        <!--
-            type="email"
-            first checks that the entered value looks
-            like a valid email address.
-
-            pattern="[A-Za-z0-9._%+-]+@student\.usek\.edu\.lb"
-
-            This adds another validation rule.
-
-            [A-Za-z0-9._%+-]+
-            represents the part before the @ symbol.
-
-            It allows:
-            uppercase letters
-            lowercase letters
-            numbers
-            and some common email characters.
-
-            @student\.usek\.edu\.lb
-            requires the email to end specifically with:
-
-            @student.usek.edu.lb
-
-            Example accepted:
-            elie.haddad@student.usek.edu.lb
-
-            Example rejected:
-            elie@gmail.com
-
-            Therefore, the field accepts a valid
-            USEK student email and not just any email.
-        -->
-
-
-
-        <!-- =================================================
-             MOBILE NUMBER
-             ================================================= -->
 
         <label for="phone">
             Mobile Number:
@@ -216,25 +74,6 @@ Engineering Student Profile
                placeholder="(+961) 70 123456"
                required>
 
-        <!--
-            type="tel"
-            indicates that this field is used for
-            a telephone number.
-
-            There is currently no pattern here,
-            so the form does not force one exact
-            telephone-number format.
-
-            required
-            means the field cannot be empty.
-        -->
-
-
-
-        <!-- =================================================
-             DATE OF BIRTH
-             ================================================= -->
-
         <label for="birthdate">
             Date of Birth:
         </label>
@@ -244,20 +83,6 @@ Engineering Student Profile
                name="birthdate"
                required>
 
-        <!--
-            type="date"
-            gives the user a browser date picker.
-
-            required
-            means that a date must be selected.
-        -->
-
-
-
-        <!-- =================================================
-             GITHUB
-             ================================================= -->
-
         <label for="portfolio">
             GitHub:
         </label>
@@ -266,124 +91,22 @@ Engineering Student Profile
                id="portfolio"
                name="portfolio"
                placeholder="https://github.com/username"
-               pattern="https://(www\.)?github\.com/.+">
-
-        <!--
-            type="url"
-            checks that the entered value has the
-            general format of a URL.
-
-            However, type="url" alone would also accept
-            another valid website such as:
-
-            https://google.com
-
-            The pattern is therefore used to restrict
-            the field specifically to GitHub.
-
-            pattern="https://(www\.)?github\.com/.+"
-
-            https://
-            means the URL must use HTTPS.
-
-            (www\.)?
-            means "www." is optional.
-
-            github\.com/
-            means the website must be github.com.
-
-            .+
-            means something must appear after the slash,
-            such as the GitHub username.
-
-            Examples accepted:
-
-            https://github.com/eliehaddadd
-
-            https://www.github.com/eliehaddadd
-
-            Example rejected:
-
-            https://google.com
-        -->
-
-
-
-        <!-- =================================================
-             GIN446 WEBSITE
-             ================================================= -->
+               pattern="https://(www[.])?github[.]com/.+">
 
         <label for="gin446">
-    GIN446 Website:
-</label>
+            GIN446 Website:
+        </label>
 
-<input type="url"
+      <input type="url"
        id="gin446"
        name="gin446"
        placeholder="https://your-site.onrender.com"
        pattern="https://[A-Za-z0-9]+(-[A-Za-z0-9]+)*[.]onrender[.]com(/.*)?">
-        <!--
-            type="url"
-            first checks that the entered information
-            looks like a valid URL.
-
-            The pattern then restricts the URL to
-            a Render website.
-
-            pattern=
-            "https://[A-Za-z0-9-]+\.onrender\.com/?.*"
-
-            https://
-            means the website must use HTTPS.
-
-            [A-Za-z0-9-]+
-            represents the name of the Render website.
-
-            It allows:
-            uppercase letters
-            lowercase letters
-            numbers
-            hyphens
-
-            \.onrender\.com
-            requires the domain to be:
-
-            .onrender.com
-
-            /?
-            means that a slash after .com is optional.
-
-            .*
-            allows additional content after the domain
-            if necessary.
-
-            Example accepted:
-
-            https://web-programming-site-vfc2.onrender.com
-
-            Example rejected:
-
-            https://google.com
-        -->
-
 
     </fieldset>
 
-
-
-    <!-- =================================================
-         2. ACADEMIC INFORMATION
-         ================================================= -->
-
     <fieldset>
-
         <legend>2. Academic Information</legend>
-
-
-
-        <!-- =================================================
-             ENGINEERING MAJOR
-             ================================================= -->
 
         <label for="major">
             Engineering Major:
@@ -415,28 +138,6 @@ Engineering Student Profile
 
         </select>
 
-        <!--
-            The text shown to the user says:
-
-            Computer Engineering
-
-            However, Flask receives:
-
-            computer
-
-            profile.html can later display the information
-            in the appropriate format.
-
-            required
-            means that the user must select a major.
-        -->
-
-
-
-        <!-- =================================================
-             CURRENT GPA
-             ================================================= -->
-
         <label for="gpa">
             Current GPA / 100:
         </label>
@@ -450,40 +151,6 @@ Engineering Student Profile
                placeholder="85.50"
                required>
 
-        <!--
-            type="number"
-            means that this field expects a numerical value.
-
-            min="40"
-            means the lowest accepted GPA is 40.
-
-            max="100"
-            means the highest accepted GPA is 100.
-
-            Therefore, a value such as 101 may be typed
-            into the field, but the browser will refuse
-            to submit the form.
-
-            step="0.01"
-            allows decimal values.
-
-            Examples:
-
-            80
-            85.5
-            92.75
-
-            A pattern is not necessary here because
-            min and max are the appropriate validation
-            attributes for a numerical input.
-        -->
-
-
-
-        <!-- =================================================
-             CREDITS COMPLETED
-             ================================================= -->
-
         <label for="credits">
             Credits Completed:
         </label>
@@ -496,30 +163,12 @@ Engineering Student Profile
                step="1"
                required>
 
-        <!--
-            min="0"
-            prevents negative credits.
-
-            max="148"
-            sets the maximum number of credits.
-
-            step="1"
-            means only whole-number steps are expected.
-        -->
-
-
-
-        <!-- =================================================
-             EXPECTED GRADUATION SEMESTER
-             ================================================= -->
-
         <fieldset>
 
             <legend>
                 Expected Graduation:
             </legend>
-
-
+            
             <input type="radio"
                    id="graduation_spring"
                    name="graduation"
@@ -530,8 +179,6 @@ Engineering Student Profile
                 Spring
             </label>
 
-
-
             <input type="radio"
                    id="graduation_summer"
                    name="graduation"
@@ -540,8 +187,6 @@ Engineering Student Profile
             <label for="graduation_summer">
                 Summer
             </label>
-
-
 
             <input type="radio"
                    id="graduation_fall"
@@ -554,26 +199,6 @@ Engineering Student Profile
 
         </fieldset>
 
-        <!--
-            These are radio buttons.
-
-            All three radio buttons use:
-
-            name="graduation"
-
-            Because they have the same name,
-            only one option can be selected.
-
-            The required attribute on the group means
-            that one graduation semester must be chosen.
-        -->
-
-
-
-        <!-- =================================================
-             EXPECTED GRADUATION MONTH AND YEAR
-             ================================================= -->
-
         <label for="graduation_month">
             Expected Graduation Month &amp; Year:
         </label>
@@ -583,27 +208,12 @@ Engineering Student Profile
                name="graduation_month"
                required>
 
-        <!--
-            type="month"
-            allows the user to choose a month and year.
-
-            required
-            means this information must be provided.
-        -->
-
-
-
-        <!-- =================================================
-             INTERNSHIP
-             ================================================= -->
-
         <fieldset>
 
             <legend>
                 Have you completed an engineering internship?
             </legend>
-
-
+            
             <input type="radio"
                    id="internship_yes"
                    name="internship_completed"
@@ -613,8 +223,6 @@ Engineering Student Profile
             <label for="internship_yes">
                 Yes
             </label>
-
-
 
             <input type="radio"
                    id="internship_no"
@@ -627,39 +235,14 @@ Engineering Student Profile
 
         </fieldset>
 
-        <!--
-            Both radio buttons use:
-
-            name="internship_completed"
-
-            Therefore, only one answer can be selected:
-
-            Yes
-            or
-            No.
-        -->
-
-
     </fieldset>
 
-
-
-    <!-- =================================================
-         3. TECHNICAL BACKGROUND
-         ================================================= -->
-
     <fieldset>
-
         <legend>3. Technical Background</legend>
-
 
         <p>
             Select all areas in which you have experience:
         </p>
-
-
-
-        <!-- Programming -->
 
         <input type="checkbox"
                id="skill_programming"
@@ -670,10 +253,6 @@ Engineering Student Profile
             Programming
         </label>
 
-
-
-        <!-- Embedded Systems -->
-
         <input type="checkbox"
                id="skill_embedded"
                name="skills"
@@ -682,10 +261,6 @@ Engineering Student Profile
         <label for="skill_embedded">
             Embedded Systems
         </label>
-
-
-
-        <!-- Electronics -->
 
         <input type="checkbox"
                id="skill_electronics"
@@ -696,10 +271,6 @@ Engineering Student Profile
             Electronics
         </label>
 
-
-
-        <!-- Computer Networks -->
-
         <input type="checkbox"
                id="skill_networks"
                name="skills"
@@ -708,10 +279,6 @@ Engineering Student Profile
         <label for="skill_networks">
             Computer Networks
         </label>
-
-
-
-        <!-- Telecommunications -->
 
         <input type="checkbox"
                id="skill_telecommunications"
@@ -722,10 +289,6 @@ Engineering Student Profile
             Telecommunications
         </label>
 
-
-
-        <!-- Biomedical Instrumentation -->
-
         <input type="checkbox"
                id="skill_biomedical"
                name="skills"
@@ -734,11 +297,7 @@ Engineering Student Profile
         <label for="skill_biomedical">
             Biomedical Instrumentation
         </label>
-
-
-
-        <!-- Artificial Intelligence -->
-
+        
         <input type="checkbox"
                id="skill_ai"
                name="skills"
@@ -748,10 +307,6 @@ Engineering Student Profile
             Artificial Intelligence / Machine Learning
         </label>
 
-
-
-        <!-- Signal Processing -->
-
         <input type="checkbox"
                id="skill_signal"
                name="skills"
@@ -760,27 +315,6 @@ Engineering Student Profile
         <label for="skill_signal">
             Signal Processing
         </label>
-
-
-        <!--
-            These are checkboxes rather than radio buttons.
-
-            Therefore, the user can select more than
-            one technical skill.
-
-            All checkboxes use:
-
-            name="skills"
-
-            Flask can therefore receive all selected
-            skills as a list.
-        -->
-
-
-
-        <!-- =================================================
-             PRIMARY PROGRAMMING LANGUAGE
-             ================================================= -->
 
         <label for="language">
             Primary Programming Language:
@@ -793,36 +327,16 @@ Engineering Student Profile
                placeholder="Start typing..."
                required>
 
-        <!--
-            list="language_list"
-            connects this input to the datalist below.
-
-            A datalist gives suggestions while still
-            allowing the user to type a value.
-        -->
-
-
         <datalist id="language_list">
-
+            
             <option value="Python">
-
             <option value="C">
-
             <option value="C++">
-
             <option value="Java">
-
             <option value="JavaScript">
-
             <option value="MATLAB">
 
         </datalist>
-
-
-
-        <!-- =================================================
-             ENGINEERING SOFTWARE
-             ================================================= -->
 
         <label for="software">
             Engineering Software Used:
@@ -855,42 +369,17 @@ Engineering Student Profile
             <option value="SolidWorks">
                 SolidWorks
             </option>
-
+            
         </select>
-
-
         <p>
             Hold Ctrl (Windows) or Command (Mac)
             to select several options.
         </p>
 
-        <!--
-            multiple
-            means the user can select more than
-            one engineering software.
-
-            Flask can retrieve these selected values
-            as a list.
-        -->
-
-
     </fieldset>
 
-
-
-    <!-- =================================================
-         4. FINAL YEAR PROJECT
-         ================================================= -->
-
     <fieldset>
-
         <legend>4. Final Year Project</legend>
-
-
-
-        <!-- =================================================
-             PROJECT TITLE
-             ================================================= -->
 
         <label for="project_title">
             Proposed Project Title:
@@ -902,23 +391,12 @@ Engineering Student Profile
                placeholder="Enter a tentative project title"
                required>
 
-
-
-        <!-- =================================================
-             PREFERRED PROJECT AREA
-             ================================================= -->
-
         <label for="project_area">
             Preferred Project Area:
         </label>
-
         <select id="project_area"
                 name="project_area"
                 required>
-
-
-
-            <!-- Computer Engineering -->
 
             <optgroup label="Computer Engineering">
 
@@ -940,10 +418,6 @@ Engineering Student Profile
 
             </optgroup>
 
-
-
-            <!-- Electrical Engineering -->
-
             <optgroup label="Electrical Engineering">
 
                 <option value="power-systems">
@@ -959,10 +433,6 @@ Engineering Student Profile
                 </option>
 
             </optgroup>
-
-
-
-            <!-- Biomedical Engineering -->
 
             <optgroup label="Biomedical Engineering">
 
@@ -980,10 +450,6 @@ Engineering Student Profile
 
             </optgroup>
 
-
-
-            <!-- Telecommunications Engineering -->
-
             <optgroup label="Telecommunications Engineering">
 
                 <option value="wireless-communication">
@@ -996,22 +462,7 @@ Engineering Student Profile
 
             </optgroup>
 
-
         </select>
-
-        <!--
-            optgroup
-            organizes the project choices into different
-            engineering categories.
-
-            This makes the long list easier to read.
-        -->
-
-
-
-        <!-- =================================================
-             PROJECT DESCRIPTION
-             ================================================= -->
 
         <label for="description">
             Brief Project Description:
@@ -1023,24 +474,6 @@ Engineering Student Profile
                   maxlength="500"
                   placeholder="Describe the problem, proposed solution, and expected outcome..."
                   required></textarea>
-
-        <!--
-            rows="5"
-            gives the textarea an initial height.
-
-            maxlength="500"
-            prevents the user from entering more
-            than 500 characters.
-
-            required
-            means that a description must be entered.
-        -->
-
-
-
-        <!-- =================================================
-             PREFERRED TEAM SIZE
-             ================================================= -->
 
         <label for="team_size">
             Preferred Team Size:
@@ -1054,24 +487,6 @@ Engineering Student Profile
                value="2"
                required>
 
-        <!--
-            min="1"
-            means the team cannot contain fewer
-            than one person.
-
-            step="1"
-            means whole numbers are used.
-
-            value="2"
-            gives the field a default value of 2.
-        -->
-
-
-
-        <!-- =================================================
-             PROJECT COLOR
-             ================================================= -->
-
         <label for="project_color">
             Choose a color for your project dashboard:
         </label>
@@ -1081,23 +496,6 @@ Engineering Student Profile
                name="project_color"
                value="#336699">
 
-        <!--
-            type="color"
-            displays a browser color picker.
-
-            value="#336699"
-            provides the default color.
-
-            This value can later be used by profile.html
-            to personalize the profile page.
-        -->
-
-
-
-        <!-- =================================================
-             MEETING DATE
-             ================================================= -->
-
         <label for="meeting_date">
             Preferred Meeting Date:
         </label>
@@ -1105,12 +503,6 @@ Engineering Student Profile
         <input type="date"
                id="meeting_date"
                name="meeting_date">
-
-
-
-        <!-- =================================================
-             MEETING TIME
-             ================================================= -->
 
         <label for="meeting_time">
             Preferred Meeting Time:
@@ -1120,17 +512,9 @@ Engineering Student Profile
                id="meeting_time"
                name="meeting_time">
 
-
     </fieldset>
-
-
-
-    <!-- =================================================
-         CONFIRMATION
-         ================================================= -->
-
+    
     <div>
-
         <input type="checkbox"
                id="confirmation"
                name="confirmation"
@@ -1142,41 +526,50 @@ Engineering Student Profile
 
     </div>
 
-    <!--
-        required
-        means the user must check this box before
-        the browser allows the form to be submitted.
-    -->
-
-
-
-    <!-- =================================================
-         BUTTONS
-         ================================================= -->
-
     <button type="submit">
         Submit Profile
     </button>
-
-    <!--
-        type="submit"
-        sends all the form information to Flask.
-    -->
-
-
-
+    
     <button type="reset">
         Clear Form
     </button>
 
-    <!--
-        type="reset"
-        clears the values entered in the form
-        and returns the controls to their initial values.
-    -->
-
-
 </form>
 
+<div id="reviewPanel"
+     class="review-panel"
+     aria-hidden="true">
+
+    <h2>Review Your Profile</h2>
+
+    <p class="review-intro">
+        Please review your information before submitting it.
+        You can return to the form to make changes or confirm
+        and send the information to the server.
+    </p>
+
+    <dl id="reviewContent"
+        class="review-list">
+    </dl>
+
+    <div class="review-actions">
+
+        <button type="button"
+                id="editBtn">
+            Edit
+        </button>
+        
+        <button type="button"
+                id="confirmBtn">
+            Confirm &amp; Submit
+        </button>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static',
+                        filename='profile_validation.js') }}">
+</script>
 
 {% endblock %}
