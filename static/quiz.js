@@ -359,13 +359,11 @@ function renderQuestion() {
     radio.name = "answer";
     radio.value = i;
 
-    // restore saved answer
 
     if (userAnswers[currentQuestion] === i) {
       radio.checked = true;
     }
 
-    // save answer when clicked
 
     radio.onclick = function () {
       saveAnswer(i);
@@ -407,12 +405,10 @@ function showResults(
   correction
 ) {
 
-  // hide quiz panel
 
   document.getElementById("quizPanel").style.display =
     "none";
 
-  // show results panel
 
   document.getElementById("resultsPanel").style.display =
     "block";
@@ -435,6 +431,6 @@ function showResults(
     correction;
 }
 
-// start application
+
 
 renderQuestion();

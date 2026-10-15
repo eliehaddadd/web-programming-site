@@ -19,10 +19,8 @@ Engineering Student Profile
     experience, and Final Year Project preferences.
 </p>
 
-<form id="profile-form"
-      action="{{ url_for('submit_profile') }}"
-      method="post"
-      novalidate>
+<form action="{{ url_for('submit_profile') }}"
+      method="post">
 
     <input type="hidden"
            name="form_version"
@@ -61,7 +59,7 @@ Engineering Student Profile
        id="email"
        name="email"
        placeholder="name@net.usek.edu.lb"
-       pattern="[A-Za-z0-9._%+-]+@net[.]usek[.]edu[.]lb"
+       pattern="[A-Za-z0-9._%+\-]+@net[.]usek[.]edu[.]lb"
        required>
 
         <label for="phone">
@@ -535,41 +533,5 @@ Engineering Student Profile
     </button>
 
 </form>
-
-<div id="reviewPanel"
-     class="review-panel"
-     aria-hidden="true">
-
-    <h2>Review Your Profile</h2>
-
-    <p class="review-intro">
-        Please review your information before submitting it.
-        You can return to the form to make changes or confirm
-        and send the information to the server.
-    </p>
-
-    <dl id="reviewContent"
-        class="review-list">
-    </dl>
-
-    <div class="review-actions">
-
-        <button type="button"
-                id="editBtn">
-            Edit
-        </button>
-        
-        <button type="button"
-                id="confirmBtn">
-            Confirm &amp; Submit
-        </button>
-
-    </div>
-
-</div>
-
-<script src="{{ url_for('static',
-                        filename='profile_validation.js') }}">
-</script>
 
 {% endblock %}
