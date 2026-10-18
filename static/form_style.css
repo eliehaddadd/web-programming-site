@@ -556,7 +556,7 @@ button:hover {
    when the review panel needs to be shown.
 
    display: none hides the form from the page,
-   but the form is NOT deleted, so all entered values stay saved.
+   but the form is not deleted, so the entered values stay saved.
 */
 .form-hidden {
     display: none;
@@ -565,23 +565,33 @@ button:hover {
 
 /* The review panel is hidden by default.
 
-   JavaScript will later add the class "open"
-   when the user successfully submits a valid form.
+   JavaScript adds the class "open"
+   when the form is valid and the review should appear.
 */
 .review-panel {
     display: none;
 
+    /* Space above the review panel */
     margin-top: 25px;
-    padding: 25px;
 
-    border: 1px solid #ccc;
+    /* Space inside the review panel */
+    padding: 30px;
+
+    /* Border around the review panel */
+    border: 1px solid #67d8f3;
+
+    /* Rounded corners */
     border-radius: 10px;
 
-    background-color: #ffffff;
+    /* Dark background to match the rest of the website */
+    background-color: #112b3c;
+
+    /* Default text color inside the panel */
+    color: #d8eaf3;
 }
 
 
-/* When JavaScript adds the "open" class,
+/* When JavaScript adds the class "open",
    the review panel becomes visible.
 */
 .review-panel.open {
@@ -589,16 +599,26 @@ button:hover {
 }
 
 
-/* Styles the main title of the review panel. */
+/* Styles the main title:
+   Review Your Profile
+*/
 .review-panel h2 {
     margin-top: 0;
     margin-bottom: 10px;
+
+    /* Light cyan title color */
+    color: #79def7;
 }
 
 
-/* Styles the small instruction text under the title. */
+/* Styles the small instruction text
+   under the main review title.
+*/
 .review-panel p {
     margin-bottom: 20px;
+
+    /* Light text color */
+    color: #d8eaf3;
 }
 
 
@@ -613,79 +633,142 @@ button:hover {
 }
 
 
-/* Each row is created dynamically in JavaScript. */
+/* Each review row is created dynamically
+   in JavaScript.
+
+   Example:
+
+   <div class="review-row">
+       <dt>Full Name</dt>
+       <dd>Elie Haddad</dd>
+   </div>
+
+   display: flex places the field name
+   and the value next to each other.
+*/
 .review-row {
     display: flex;
 
+    /* Vertical space inside each row */
     padding: 12px 0;
 
-    border-bottom: 1px solid #ddd;
+    /* Line separating every row */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 
-/* Styles the field name. */
+/* Styles the field name.
+
+   Examples:
+   Form Version
+   Student ID
+   Full Name
+   USEK Email
+*/
 .review-row dt {
+    /* Field name takes 40% of the row */
     width: 40%;
 
+    /* Makes the field name bold */
     font-weight: bold;
 
     margin: 0;
+
+    /* Gold color used for field names */
+    color: #f4c35a;
 }
 
 
-/* Styles the user's value. */
+/* Styles the value entered by the user.
+
+   Examples:
+   2026-2027
+   202500465
+   Elie Haddad
+*/
 .review-row dd {
+    /* Field value takes 60% of the row */
     width: 60%;
 
     margin: 0;
 
+    /* Light text color for values */
+    color: #d8eaf3;
+
+    /* Allows long URLs or text
+       to continue on the next line
+       instead of going outside the panel.
+    */
     overflow-wrap: anywhere;
 }
 
 
-/* Container for the Edit and Confirm buttons. */
+/* Container for the Edit
+   and Confirm buttons.
+*/
 .review-actions {
     display: flex;
 
+    /* Space between both buttons */
     gap: 10px;
 
+    /* Space above the buttons */
     margin-top: 25px;
 }
 
 
-/* General styling for both buttons. */
+/* General styling applied
+   to both buttons.
+*/
 .review-actions button {
+    /* Space inside the button */
     padding: 10px 18px;
 
+    /* Removes default button border */
     border: none;
+
+    /* Rounded corners */
     border-radius: 6px;
 
+    /* Shows hand cursor when hovering */
     cursor: pointer;
 
+    /* Text size */
     font-size: 15px;
 }
 
 
-/* Edit button. */
+/* Edit button.
+
+   This button returns the user
+   to the original form.
+*/
 #editBtn {
     background-color: #e0e0e0;
+
+    color: #112b3c;
 }
 
 
-/* Edit hover effect. */
+/* Hover effect for Edit button */
 #editBtn:hover {
     background-color: #cccccc;
 }
 
 
-/* Confirm button. */
+/* Confirm button.
+
+   This button submits the form
+   to the Flask server.
+*/
 #confirmBtn {
     background-color: #0077cc;
+
     color: white;
 }
 
 
-/* Confirm hover effect. */
+/* Hover effect for Confirm button */
 #confirmBtn:hover {
     background-color: #005fa3;
 }
@@ -695,25 +778,43 @@ button:hover {
    RESPONSIVE DESIGN
    ========================================================= */
 
+
+/* This part is used on smaller screens.
+
+   When the screen width is 600px or less,
+   the field name and field value are placed
+   one under the other instead of side by side.
+*/
 @media (max-width: 600px) {
 
     .review-row {
         flex-direction: column;
     }
 
+
+    /* Field name takes the full width */
     .review-row dt {
         width: 100%;
+
         margin-bottom: 5px;
     }
 
+
+    /* Field value takes the full width */
     .review-row dd {
         width: 100%;
     }
 
+
+    /* Buttons are placed vertically */
     .review-actions {
         flex-direction: column;
     }
 
+
+    /* Buttons take the full width
+       on small screens.
+    */
     .review-actions button {
         width: 100%;
     }
