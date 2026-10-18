@@ -547,3 +547,174 @@ button:hover {
     }
 }
 
+/* =========================================================
+   WEEK 6 - FORM REVIEW PANEL
+   ========================================================= */
+
+
+/* This class is added to the form with JavaScript
+   when the review panel needs to be shown.
+
+   display: none hides the form from the page,
+   but the form is NOT deleted, so all entered values stay saved.
+*/
+.form-hidden {
+    display: none;
+}
+
+
+/* The review panel is hidden by default.
+
+   JavaScript will later add the class "open"
+   when the user successfully submits a valid form.
+*/
+.review-panel {
+    display: none;
+
+    margin-top: 25px;
+    padding: 25px;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    background-color: #ffffff;
+}
+
+
+/* When JavaScript adds the "open" class,
+   the review panel becomes visible.
+*/
+.review-panel.open {
+    display: block;
+}
+
+
+/* Styles the main title of the review panel. */
+.review-panel h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+
+/* Styles the small instruction text under the title. */
+.review-panel p {
+    margin-bottom: 20px;
+}
+
+
+/* reviewContent is a <dl> element.
+
+   dt = field name
+   dd = field value
+*/
+#reviewContent {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Each row is created dynamically in JavaScript. */
+.review-row {
+    display: flex;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* Styles the field name. */
+.review-row dt {
+    width: 40%;
+
+    font-weight: bold;
+
+    margin: 0;
+}
+
+
+/* Styles the user's value. */
+.review-row dd {
+    width: 60%;
+
+    margin: 0;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* Container for the Edit and Confirm buttons. */
+.review-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+
+/* General styling for both buttons. */
+.review-actions button {
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+
+/* Edit button. */
+#editBtn {
+    background-color: #e0e0e0;
+}
+
+
+/* Edit hover effect. */
+#editBtn:hover {
+    background-color: #cccccc;
+}
+
+
+/* Confirm button. */
+#confirmBtn {
+    background-color: #0077cc;
+    color: white;
+}
+
+
+/* Confirm hover effect. */
+#confirmBtn:hover {
+    background-color: #005fa3;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .review-row {
+        flex-direction: column;
+    }
+
+    .review-row dt {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .review-row dd {
+        width: 100%;
+    }
+
+    .review-actions {
+        flex-direction: column;
+    }
+
+    .review-actions button {
+        width: 100%;
+    }
+}
