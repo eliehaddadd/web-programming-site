@@ -161,7 +161,6 @@ const questions = [
 }
 ];
 
-// application state
 
 let currentQuestion = 0;
 const userAnswers = new Array(questions.length);

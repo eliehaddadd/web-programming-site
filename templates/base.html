@@ -110,6 +110,16 @@
                {% endif %}>
              Quiz
             </a>
+
+           <a href="{{ url_for('live_quiz') }}"
+           class="{% if request.endpoint == 'live_quiz' %}active{% endif %}"
+           {% if request.endpoint == 'live_quiz' %}
+           aria-current="page"
+           {% endif %}>
+           Live Quiz
+           </a>
+
+           <a href="{{ url_for('profile_validated') }}">Server Side</a>
         </nav>
 
     </header>
