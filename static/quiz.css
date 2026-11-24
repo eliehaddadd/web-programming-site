@@ -389,7 +389,19 @@
     cursor:
         not-allowed;
 }
+/*week12*/
+/* Visible keyboard focus for quiz buttons */
+#quizPanel button:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
 
+/* Visible keyboard focus for answer choices */
+.choice:focus-within {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+}
+/*week12*/
 /*
    First and Previous are disabled on Question 1.
 

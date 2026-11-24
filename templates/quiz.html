@@ -15,7 +15,7 @@ Quiz
 
 {% block content %}
 
-<main class="container">
+<div class="container">
 
     <h1>JavaScript Quiz</h1>
 
@@ -53,6 +53,7 @@ Quiz
 
         </div>
 
+<p id="quizError" role="alert"></p> <!--week 12-->
 
         <button class="submit"
                 onclick="submitQuiz()">
@@ -63,7 +64,7 @@ Quiz
 
 
 
-    <section id="resultsPanel">
+    <section id="resultsPanel" aria-live="polite"> <!--week 12-->
 
         <h2>Quiz Results</h2>
 
@@ -79,7 +80,7 @@ Quiz
 
     </section>
 
-</main>
+</div>
 
 
 <script src="{{ url_for('static', filename='quiz.js') }}"></script>

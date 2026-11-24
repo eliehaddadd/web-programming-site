@@ -15,17 +15,17 @@ Quiz
 
 {% block content %}
 
-<main class="container">
+<div class="container">
 
     <h1>JavaScript Quiz</h1>
 
 
-    <section id="quizPanel">
+    <section id="resultsPanel" aria-live="polite"> <!--week 12-->
 
         <p id="progress"></p>
 
-        <p id="loading" hidden>Loading…</p> 
-<p id="error" hidden></p> 
+        <p id="loading" role="status" hidden>Loading…</p>
+<p id="error" role="alert" hidden></p>  <!--week 12-->
 
         <h2 id="questionText"></h2>
 
@@ -82,7 +82,7 @@ Quiz
 
     </section>
 
-</main>
+</div>
 
 
 <script src="{{ url_for('static', filename='live_quiz.js') }}"></script>

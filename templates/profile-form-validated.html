@@ -10,9 +10,12 @@ Engineering Student Profile
       href="{{ url_for('static', filename='form_style.css') }}">
 {% endblock %}
 
+<!--week 12-->
 {% macro err(f) %}
     {% if errors.get(f) %}
-        <span class="error">{{ errors[f] }}</span>
+        <span class="error" role="alert">
+            {{ errors[f] }}
+        </span>
     {% endif %}
 {% endmacro %}
 
@@ -609,7 +612,7 @@ Engineering Student Profile
 </div>
 </div>
 
-<script src="{{ url_for('static', filename='profile_validation.js') }}"></script>
+done
 
 
 {% endblock %}

@@ -407,19 +407,11 @@ form p {
    ===================================================== */
 
 form > div {
-    padding:
-        var(--space-medium); /* adds space inside the box */
-
-    background:
-        var(--card-bg);
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        10px;
+    padding: var(--space-medium);
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 10px;
 }
-
 
 form > div input[type="checkbox"] {
     width:
@@ -771,6 +763,24 @@ button:hover {
 /* Hover effect for Confirm button */
 #confirmBtn:hover {
     background-color: #005fa3;
+}
+/*week 12*/
+
+/* Visible keyboard focus for buttons */
+button:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+/* Disabled button appearance */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/*week12*/
+/* Accessible confirmation label */
+label[for="confirmation"] {
+    color: var(--text-main);
 }
 
 

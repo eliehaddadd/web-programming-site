@@ -155,26 +155,30 @@ async function buildCorrection() {
 
 
 async function submitQuiz() {
+  const loading = document.getElementById("loading");
+  const error = document.getElementById("error");
 
-  const score =
-    await calculateScore();
+  loading.hidden = false;
+  error.hidden = true;
 
-  const percentage =
-    calculatePercentage(score);
+  try {
+    const score = await calculateScore();
+    const percentage = calculatePercentage(score);
+    const message = getPerformanceMessage(percentage);
+    const correction = await buildCorrection();
 
-  const message =
-    getPerformanceMessage(percentage);
-
-  const correction =
-    await buildCorrection();
-
-  showResults(
-    score,
-    percentage,
-    message,
-    correction
-  );
+    showResults(score, percentage, message, correction);
+  }
+  catch (err) {
+    error.textContent =
+      "Unable to submit the quiz. Please try again.";
+    error.hidden = false;
+  }
+  finally {
+    loading.hidden = true;
+  }
 }
+/* try catch finally week 12 ai*/
 
 async function renderQuestion() {
 const loading = document.getElementById("loading");

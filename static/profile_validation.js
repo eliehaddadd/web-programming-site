@@ -132,6 +132,7 @@ buildReview();
 form.classList.add("form-hidden");
 reviewPanel.classList.add("open");
 reviewPanel.setAttribute("aria-hidden","false");
+document.getElementById("reviewHeading").focus(); // week 12
     }
 );
 
@@ -147,6 +148,8 @@ editBtn.addEventListener(
 confirmBtn.addEventListener(
     "click",
     function () {
+        confirmBtn.disabled = true;
+        confirmBtn.textContent = "Submitting..."; //week 12
         form.submit();
     }
 );

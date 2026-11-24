@@ -1,3 +1,4 @@
+
 """
 Web Programming — Flask application (Week 4).
 
@@ -9,31 +10,18 @@ WHAT THIS FILE DOES (the "black box" for this week)
 It adds the "Engineering Student Profile" form. You do NOT need to understand this
 code yet — server-side form handling is taught in a later session. For now:
 
-  GET  /submit-profile   -> shows your form   (you build templates/profile_form.html)
+  GET  /submit-profile   -> shows your form
   POST /submit-profile   -> reads the submitted data and shows your profile page
-                            (renders templates/profile.html, which extends your
-                             base.html so it appears in YOUR design / CSS)
 
 HOW THE DATA REACHES THE PROFILE PAGE
 -------------------------------------
-When the form is submitted, this route reads every field the form sends and hands
-it to profile.html. Three variables are available inside profile.html:
+Three variables are available inside profile.html:
 
-  data      -> a dictionary of all single-value fields, keyed by the field `name`,
-               e.g. data['fullname'], data['student_id'], data['email'],
-               data['major'], data['gpa'], data['project_title'], ...
-  skills    -> a LIST of the ticked "skills" checkboxes
-  software  -> a LIST of the selected "software" options (from the multiple <select>)
+  data      -> a dictionary of all single-value fields
+  skills    -> a LIST of the ticked skills checkboxes
+  software  -> a LIST of the selected software options
 
-Note: `skills` and `software` can hold several values, so they are read as lists.
-Every other field is a single value inside `data`.
-
-Example inside profile.html (which extends your base.html):
-
-  <h1>{{ data['fullname'] }}</h1>
-  <p>{{ data['major'] }}</p>
-  <p>Skills: {{ skills | join(', ') }}</p>
-  <p>Software: {{ software | join(', ') }}</p>
+Every other field is a single value inside data.
 """
 
 from flask import Flask, render_template, request
@@ -42,7 +30,8 @@ from validators import validate_profile
 app = Flask(__name__)
 
 from quiz_api import init_quiz
-init_quiz(app) 
+init_quiz(app)
+
 
 @app.route("/")
 def home():
@@ -83,28 +72,25 @@ def web_history_ai():
 @app.route("/submit-profile", methods=["GET", "POST"])
 def submit_profile():
     """
-    GET  -> show the profile form (you build templates/profile_form.html).
-    POST -> read the submitted fields and show the profile page
-            (templates/profile.html, which extends your base.html).
+    GET  -> show the profile form.
+    POST -> read submitted fields and show the profile page.
     """
     if request.method == "POST":
-        data = request.form.to_dict()                   # all single-value fields
-        skills = request.form.getlist("skills")         # checkboxes -> list
-        software = request.form.getlist("software")     # multiple <select> -> list
+        data = request.form.to_dict()
+        skills = request.form.getlist("skills")
+        software = request.form.getlist("software")
+
         return render_template(
             "profile.html", data=data, skills=skills, software=software
         )
 
-    # First visit (GET): just show the empty form.
     return render_template("profile-form.html")
+
 
 @app.route("/quiz", methods=["GET", "POST"])
 def quiz():
     return render_template("quiz.html")
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
 
 @app.route("/profile-validated", methods=["GET", "POST"])
 def profile_validated():
@@ -135,6 +121,11 @@ def profile_validated():
         sel_software=[]
     )
 
+
 @app.route("/live-quiz")
 def live_quiz():
     return render_template("live_quiz.html")
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

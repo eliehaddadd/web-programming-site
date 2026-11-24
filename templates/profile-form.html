@@ -107,7 +107,9 @@ Engineering Student Profile
     </fieldset>
 
     <fieldset>
-        <legend>2. Academic Information</legend>
+        <legend role="heading" aria-level="3">
+    2. Academic Information
+</legend> /*week12*/
 
         <label for="major">
             Engineering Major:
@@ -240,7 +242,9 @@ Engineering Student Profile
     </fieldset>
 
     <fieldset>
-        <legend>3. Technical Background</legend>
+        <legend role="heading" aria-level="3">
+    3. Technical Background
+</legend>  /*week12*/
 
         <p>
             Select all areas in which you have experience:
@@ -400,6 +404,10 @@ Engineering Student Profile
                 name="project_area"
                 required>
 
+                <option value="" selected disabled> <!--week 12-->
+    -- Select a project area --
+</option>
+
             <optgroup label="Computer Engineering">
 
                 <option value="artificial-intelligence">
@@ -540,7 +548,7 @@ Engineering Student Profile
 </form>
 
 <div id="reviewPanel" class="review-panel" aria-hidden="true">
-<h2>Review Your Profile</h2>
+<h2 id="reviewHeading" tabindex="-1">Review Your Profile</h2> // week 12
 <p>Please review your information before submitting.</p>
 <dl id="reviewContent"></dl>
 <div class="review-actions">

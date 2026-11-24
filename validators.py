@@ -67,21 +67,30 @@ def validate_profile(form):
         errors["phone"] = "Enter a valid Lebanese number, e.g. +961 70 123456."
     cleaned["phone"] = phone
 
-
-
+    # WEEK 12 - Birthdate validation
     birthdate = form.get("birthdate", "").strip()
+
     if birthdate != "":
         day = parse_date(birthdate)
 
-        if day is None: errors["birthdate"] = "Not a valid date."
+        if day is None:
+            errors["birthdate"] = "Not a valid date."
 
-        elif day > date.today(): errors["birthdate"] = "Date of birth cannot be in the future."
+        elif day > date.today():
+            errors["birthdate"] = "Date of birth cannot be in the future."
 
-        else: age = (date.today() - day).days // 365
+        else:
+            age = (date.today() - day).days // 365
 
-        if age < 15 or age > 100: errors["birthdate"] = "Age looks out of range."
+            if age < 15 or age > 100:
+                errors["birthdate"] = "Age looks out of range."
 
     cleaned["birthdate"] = birthdate
+
+    portfolio = form.get("portfolio", "").strip()
+    if portfolio != "" and not GITHUB.match(portfolio):
+        errors["portfolio"] = "Use a GitHub URL."
+    cleaned["portfolio"] = portfolio
 
 
     portfolio = form.get("portfolio", "").strip()
@@ -101,12 +110,15 @@ def validate_profile(form):
         errors["major"] = "Choose a valid major."
     cleaned["major"] = major
 
-
+    # WEEK 12 - GPA validation
     gpa = form.get("gpa", "").strip()
+
     if gpa != "":
         number = to_number(gpa)
 
-    if number is None or number < 40 or number > 100: errors["gpa"] = "GPA must be a number between 40 and 100."
+        if number is None or number < 40 or number > 100:
+            errors["gpa"] = "GPA must be a number between 40 and 100."
+
     cleaned["gpa"] = gpa
 
 
